@@ -115,18 +115,51 @@ public class Fakulteti {
 
         for (int i = 0; i < index; i++) {
             if (mesimdhenesit[i].getVitiLindjes() == vitiLindjes) {
-                mesimdhenesit[i];
-            }
+            
+                for (int j = i; j < index; j++) {
+                    mesimdhenesit[j] = mesimdhenesit[j+1];
+                }
 
-            for (int j = i; j < index; j++) {
-                mesimdhenesit[j] = mesimdhenesit[j+1];
+                mesimdhenesit[--index] = null;
+                i--;
+                return true;
             }
-
-            mesimdhenesit[--index] = null;
-            i--;
-            return true;
         }
         return false;
+    }
+
+    public Mesimdhenesi[] ktheSipasEmrit(String emri) {
+        Mesimdhenesi[] msmemri = null;
+        int count = 0;
+
+        for (int i = 0; i < index; i++) {
+            if (mesimdhenesit[i] instanceof Profesori) {
+                Profesori p = (Profesori)mesimdhenesit[i];
+                if(p.getEmri().equals(emri)) {
+                    count++;
+                }
+            }
+                
+        }
+
+        if (count == 0) {
+            System.out.println("Nuk ka Profesor me kete emer" + emri);
+            return null;
+        }
+
+        msmemri = new Mesimdhenesi[count];
+        int pozita=0;
+
+        for (int i = 0; i < index; i++) {
+            if (mesimdhenesit[i] instanceof Profesori) {
+                Profesori p = (Profesori)mesimdhenesit[i];
+                if(p.getEmri().equals(emri)) {
+                    count++;
+                }
+            }
+                
+        }
+
     }
 
 

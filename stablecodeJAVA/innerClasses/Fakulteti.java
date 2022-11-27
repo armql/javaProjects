@@ -14,6 +14,7 @@ public class Fakulteti {
         numriM=25;
     }
 
+    
     {
         Fakulteti.Vizituesi viz = new Fakulteti.Vizituesi("Arlind", 2002, 10);
         mesimdhenesit = new Mesimdhenesi[numriM];
