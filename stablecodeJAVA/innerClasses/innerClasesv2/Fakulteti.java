@@ -19,6 +19,7 @@ public class Fakulteti {
     {
         Fakulteti.Vizituesi viz = new Fakulteti.Vizituesi("Arlind", 2002, 10);
         mesimdhenesit = new Mesimdhenesi[numriM];
+        shtoMesimdhenesi(viz);
     }
 
     public class Tutori extends Mesimdhenesi {
@@ -59,6 +60,7 @@ public class Fakulteti {
             return true;
         }
 
+        @Override
         public String toString() {
             return "Mesimdhenesi vizitues " + super.toString() + " me " + numriOreve + " ore";
         }
@@ -71,6 +73,15 @@ public class Fakulteti {
             }
         }
         return false;
+    }
+
+    public void shtoNjeMesimdhenes(String emri, int vitiLindjes, String angazhimi, boolean mentoron) {
+        Mesimdhenesi m = new Mesimdhenesi(emri, vitiLindjes, angazhimi) {
+            public boolean mentoron() {
+                return mentoron;
+            }
+        };
+        shtoMesimdhenesi(m);
     }
 
     public void shtoMesimdhenesi(Mesimdhenesi m) {
@@ -86,6 +97,7 @@ public class Fakulteti {
         }
         mesimdhenesit[index++] = m;
     }
+
 
     public void shtypSipasEmrit(String emri) {
         for (int i = 0; i < index; i++) {
@@ -130,39 +142,7 @@ public class Fakulteti {
         return false;
     }
 
-    public Mesimdhenesi[] ktheSipasEmrit(String emri) {
-        Mesimdhenesi[] msmemri = null;
-        int count = 0;
-
-        for (int i = 0; i < index; i++) {
-            if (mesimdhenesit[i] instanceof Profesori) {
-                Profesori p = (Profesori) mesimdhenesit[i];
-                if (p.getEmri().equals(emri)) {
-                    count++;
-                }
-            }
-
-        }
-
-        if (count == 0) {
-            System.out.println("Nuk ka Profesor me kete emer" + emri);
-            return null;
-        }
-
-        msmemri = new Mesimdhenesi[count];
-        int pozita = 0;
-
-        for (int i = 0; i < index; i++) {
-            if (mesimdhenesit[i] instanceof Profesori) {
-                Profesori p = (Profesori) mesimdhenesit[i];
-                if (p.getEmri().equals(emri)) {
-                    count++;
-                }
-            }
-
-        }
-
-    }
+   
 
     public static void main(String[] args) {
         Fakulteti f = new Fakulteti("UBT");
