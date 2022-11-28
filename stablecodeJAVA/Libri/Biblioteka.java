@@ -67,32 +67,39 @@ public class Biblioteka {
         }
     }
 
-    // public Libri meMeDetyra(int vitiPublikimit) {
-    //     Libri meIRiu = null;
+    
+    public boolean fshijLibrin(Libri l) {
 
-    //     for (int i = 0; i < index; i++) {
-            
-    //         if(meIRiu == null || librat[i].kaDetyra() == true && librat[i].getVitiPublikimit() < vitiPublikimit) {
-    //             meIRiu=librat[i];
-    //         }
-    //     }
-    //     return meIRiu;
-    // }
+        for (int i = 0; i < index; i++) {
+            if(l.equals(librat[i])) {
 
-    public boolean fshijLibrin(Libri l){
-       
-        for(int i = 0; i < index; i++){
-            if(l.equals(librat[i])){
-                for(int j = i; j < index-1; j++){
-                    librat[j] = librat[j+1];
+                for (int j = i; j < index; j++) {
+                    librat[j] = librat[j + 1];
                 }
                 librat[--index] = null;
                 i--;
                 return true;
             }
         }
-
         return false;
+    }
+
+    public int fshijLibrinSipTitullit(String titulli) {
+        int count = 0;
+        for (int i = 0; i < index; i++) {
+            
+            if(librat[i].getTitulli().equals(titulli)) {
+                count++;
+                for (int j = i; j < index; j++) {
+                    librat[j] = librat[j + 1];
+                }
+                
+                librat[--index] = null;
+                i--;
+            }
+        }
+        return count;
+
     }
 
 
@@ -102,6 +109,12 @@ public class Biblioteka {
         }
     }
 
+    // public void printls() {
+    //     for (int i = 0; i < index; i++) {
+    //         librat[i] = librat[i] - index;
+    //     }
+    // }
+
     public static void main(String[] args) {
         Biblioteka b = new Biblioteka("UBT Library", 10);
 
@@ -110,8 +123,8 @@ public class Biblioteka {
         LibriShkollor l3 = new LibriShkollor("531631", "BIEE 6", 2002, "Basics of EE");
         Enciklopedia e1 = new Enciklopedia("1241241253", "WIKI I", 2022, 3);
         Enciklopedia e2 = new Enciklopedia("45232131", "WIKI", 1992, 3);
-        Enciklopedia e3 = new Enciklopedia("646124125", "WIKI2", 1992, 3);
-        Enciklopedia e4 = new Enciklopedia("643235122", "WIKI 3", 1992, 3);
+        Enciklopedia e3 = new Enciklopedia("646124125", "WIKI", 1992, 3);
+        Enciklopedia e4 = new Enciklopedia("643235122", "WIKI III", 1992, 3);
     
         b.shtoLibra(l1);
         b.shtoLibra(l2);
@@ -132,6 +145,8 @@ public class Biblioteka {
         b.shtypEnciklopediaTitulli();
         System.out.println("Fshij librin l2");
         b.fshijLibrin(l2);
+        System.out.println("Fshij librin sipasTitullit");
+        b.fshijLibrinSipTitullit("WIKI");
         System.out.println("");
         System.out.println("Printohet e gjith lista");
         b.printALL();

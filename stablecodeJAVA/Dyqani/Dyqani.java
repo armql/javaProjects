@@ -118,6 +118,16 @@ public class Dyqani{
         return spEmri;
     }
 
+
+    public Pajisja[] ktheNrProgrameve(int nrProgrameve) {
+        if(index == 0) {
+            System.out.println("Nuk ka pajisje");
+            return;
+        }
+
+    }
+    
+
     public boolean fshijSipasMemories(int memoria){
        
         for(int i = 0; i < index; i++){
@@ -138,6 +148,25 @@ public class Dyqani{
         return false;
     }
 
+    
+
+    public int fshijtegjithaPajisjet(String prodhuesi) {
+        int count=0;
+
+        for(int i=0; i<index; i++) {
+            count++;
+            if(pajisjet[i].getProdhuesi().equals(prodhuesi)) {
+                 
+                for(int j=i; j<index; j++) {
+                    pajisjet[j] = pajisjet[j + 1];
+                }
+            pajisjet[--index] = null;
+            i--;
+            }
+        }
+        return count;
+    }
+    
 
     public static void main(String[] args) {
         Dyqani d1 = new Dyqani("ABC Shop", 25);
@@ -146,7 +175,7 @@ public class Dyqani{
         Enelaresja e2  = new Enelaresja(2, "Gorenje", 280, 'B', 2);
         Enelaresja e3  = new Enelaresja(3, "Beko", 250, 'B', 2);
         Enelaresja e4  = new Enelaresja(4, "Samsung", 285, 'D', 3);
-        MP3Player player1 = new MP3Player(11, "Tooch", 8, 'C', 1);
+        MP3Player player1 = new MP3Player(11, "Acer", 8, 'C', 1);
         MP3Player player2 = new MP3Player(12, "Samsung", 12, 'A', 4); 
         MP3Player player3 = new MP3Player(13, "Apple", 8, 'A', 4); 
         MP3Player player4 = new MP3Player(14, "Ipod", 12, 'D', 1); 
@@ -184,7 +213,17 @@ public class Dyqani{
 		for(Pajisja a : temp1){
 			System.out.println(a.toString());
 		}
-
+        
+        System.out.println("");
+        System.out.println("Lista pas fshirjes:");
+        d1.fshijtegjithaPajisjet("Acer");
+        
+        
+        
+        System.out.println("");
+        System.out.println("Lista pas fshirjes:");
+        d1.printoPajisjet();
+        
         
 
     }
