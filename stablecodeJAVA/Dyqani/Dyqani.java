@@ -82,6 +82,7 @@ public class Dyqani{
         }
     }
 
+
     public Pajisja[] ktheNumriProgrameve(int param){
         if(index == 0){
             System.out.println("Ky dyqan nuk ka asnje Pajisje/e!");
@@ -114,18 +115,9 @@ public class Dyqani{
                 }
             }
         }
-
         return spEmri;
     }
 
-
-    public Pajisja[] ktheNrProgrameve(int nrProgrameve) {
-        if(index == 0) {
-            System.out.println("Nuk ka pajisje");
-            return;
-        }
-
-    }
     
 
     public boolean fshijSipasMemories(int memoria){
@@ -167,6 +159,7 @@ public class Dyqani{
         return count;
     }
     
+
 
     public static void main(String[] args) {
         Dyqani d1 = new Dyqani("ABC Shop", 25);
