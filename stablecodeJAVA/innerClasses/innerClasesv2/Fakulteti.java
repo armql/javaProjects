@@ -3,10 +3,12 @@ package innerClasses.innerClasesv2;
 import StafAkademik.Mesimdhenesi;
 
 public class Fakulteti {
-    private String drejtimi;
     private Mesimdhenesi[] mesimdhenesit;
+    public boolean kaDekan = false;
     private static int numriM;
+    private String drejtimi;
     private int index;
+
 
     public Fakulteti(String drejtimi) {
         this.drejtimi = drejtimi;
@@ -142,6 +144,36 @@ public class Fakulteti {
         return false;
     }
 
+    public void shtoDekanin(String emri, int vitiLindjes) {
+        class Dekani extends Mesimdhenesi {
+
+            public Dekani (String emri, int vitiLindjes) {
+                super(emri,vitiLindjes,"Menaxhimi");
+            }
+
+            @Override
+            public boolean mentoron() {
+                return true;
+            }
+
+            @Override
+            public String toString() {
+                return "Dekani " + emri + " i lindur me " + vitiLindjes + " menaxhon Fakultetin " + drejtimi;
+            }
+    
+        }
+
+        Dekani d = new Dekani(); 
+        if(kaDekan) {
+            System.out.println("Ekziston dekani per drejtimin: " + drejtimi);
+        }else {
+            shtoMesimdhenesi(d);
+            kaDekan = true;
+        }
+
+        }
+
+    }
    
 
     public static void main(String[] args) {
@@ -154,6 +186,7 @@ public class Fakulteti {
         Asistenti a1 = new Asistenti("Dion Kuka", 1994, "Ushtrime Konceptuale");
         Asistenti a2 = new Asistenti("Elton Aliu", 1995, "Ushtrime");
         Asistenti a3 = new Asistenti("Behar", 1995, "Ushtrime");
+
 
     }
 
