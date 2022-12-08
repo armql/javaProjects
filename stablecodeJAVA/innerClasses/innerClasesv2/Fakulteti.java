@@ -187,6 +187,7 @@ public class Fakulteti {
         Asistenti a2 = new Asistenti("Elton Aliu", 1995, "Ushtrime");
         Asistenti a3 = new Asistenti("Behar", 1995, "Ushtrime");
 
+        
 
     }
 

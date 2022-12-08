@@ -13,6 +13,7 @@ public class Autosalloni {
     {
         automjetet = new Automjeti[numriA];
         Autosalloni.Coupe cop = new Autosalloni.Coupe("341", "Belsch", 2020, 2);
+        shtoAutomjetin(cop);
     }
 
     public Autosalloni(String emri) {
@@ -88,6 +89,8 @@ public class Autosalloni {
         };
         shtoAutomjetin(a);
     }
+
+    
 
 
 
