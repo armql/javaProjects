@@ -92,7 +92,6 @@ public class Autosalloni {
         }
         return meIVjeter;
     }
-
     public static void main(String[] args) {
         
         Autosalloni Blerimi = new Autosalloni("AUTOSALLON-BLERIMI",50);

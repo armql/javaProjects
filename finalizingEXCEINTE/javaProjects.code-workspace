@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../ComScienceProv"
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5501
+	}
+}
