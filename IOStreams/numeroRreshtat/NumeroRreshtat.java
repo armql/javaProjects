@@ -42,6 +42,7 @@ public class NumeroRreshtat{
 		+ " eshte : " + numero(txt));
 		bw.flush();
 	}
+
 	public void mbylliResurset(){
 		try{
 		if(fr != null){
@@ -64,6 +65,7 @@ public class NumeroRreshtat{
 	
 	public static void main(String[]args){
 		NumeroRreshtat nr = null;
+		
 		try{
 			nr = new NumeroRreshtat("shk2.txt","shk2.out");
 			nr.numeroRreshtat("UBT");
