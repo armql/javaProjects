@@ -26,7 +26,7 @@ public class Biblioteka {
         private String zhanri;
 
         public Romani(String isbn, String titulli, int vitiPublikimit, String zhanri) {
-            super(isbn, titulli, vitiPublikimit)
+            super(isbn, titulli, vitiPublikimit);
             this.zhanri=zhanri;
         }
 
