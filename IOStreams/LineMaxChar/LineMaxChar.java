@@ -28,11 +28,11 @@ public class LineMaxChar {
                 longestLine=line;
             }
 
-            FileWriter fw = new FileWriter("ubt.txt\ubt.out");
-            fw.write("Fjalia me e gjate ndodhet te rreshti " + rreshti_kushti);
-            fw.close();
         }
-    }
+
+        FileWriter fw = new FileWriter("ubt.txt\shk2.out");
+        fw.write("Fjalia me e gjate ndodhet te rreshti " + rreshti_kushti);
+        fw.close();    }
 
     public void closeAll() {
         try {

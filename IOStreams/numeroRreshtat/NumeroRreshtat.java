@@ -8,12 +8,12 @@ public class NumeroRreshtat{
 	FileWriter fw = null;
 	BufferedWriter bw = null;
 	
-	public NumeroRreshtat(String fi, String fo) throws Exception{
+	public NumeroRreshtat(String fi, String fo) throws IOException{
 		if(fi == null || fi.trim().isEmpty()){
-			throw new Exception ("File input error");
+			throw new IOException ("File input error");
 		}
 		if(fo == null || fo.trim().isEmpty()){
-			throw new Exception ("File output error");
+			throw new IOException ("File output error");
 		}
 		fileIn = fi;
 		fileOut = fo;
@@ -23,7 +23,7 @@ public class NumeroRreshtat{
 		bw = new BufferedWriter(fw);	
 	}
 	
-	public int numero(String txt) throws Exception{
+	public int numero(String txt) throws IOException{
 		int count = 0;
 		String line = null;
 		while((line = br.readLine()) != null){
@@ -34,13 +34,13 @@ public class NumeroRreshtat{
 		return count;	
 	}
 	
-	public void numeroRreshtat(String txt) throws Exception{
+	public void numeroRreshtat(String txt) throws IOException{
 		//Numri i rreshtave ne file-in <emri_i_input_file-it> 
 		//qe fillojne me tekstin <teksti> eshte: <nr_rreshtave> 
 		bw.write("Numri i rreshtave ne file-in " +
 		fileIn + " qe fillojne me tekstin " + txt 
 		+ " eshte : " + numero(txt));
-		bw.flush();
+		bw.close();
 	}
 
 	public void mbylliResurset(){
@@ -58,7 +58,7 @@ public class NumeroRreshtat{
 			bw.close();
 		}
 		}
-		catch(Exception e){
+		catch(IOException e){
 			e.printStackTrace();
 		}
 	}
