@@ -3,19 +3,19 @@ package ArrayLists.EkipiOlimpik;
 public class Karateisti extends Sportisti implements Rekuizita {
     private String stili;
 
-    public Karateisti(String id, String emri, int mosha, char gjinia, String stili) throws MesimdhenesiException {
+    public Karateisti(String id, String emri, int mosha, char gjinia, String stili) throws SportistiException {
         super(id, emri, mosha, gjinia);
         if(stili != null || stili.trim().isEmpty()) {
-            throw new MesimdhenesiException(" Stili është i zbrazët ose null. ");
+            throw new SportistiException(" Stili është i zbrazët ose null. ");
         }
         this.stili = stili;
     }
 
     public String getStili() {
         return stili;
-    }public void setStili(String stili) throws MesimdhenesiException{
+    }public void setStili(String stili) throws SportistiException{
         if(stili != null || stili.trim().isEmpty()) {
-            throw new MesimdhenesiException(" Stili është i zbrazët ose null. ");
+            throw new SportistiException(" Stili është i zbrazët ose null. ");
         }
         this.stili=stili;
     }

@@ -8,24 +8,24 @@ public abstract class Sportisti {
 
     public abstract boolean garonIndividualisht();
 
-    public Sportisti (String id, String emri, int mosha, char gjinia) throws MesimdhenesiException{
+    public Sportisti (String id, String emri, int mosha, char gjinia) throws SportistiException{
         if(id != null || id.trim().isEmpty()) {
-            throw new MesimdhenesiException("ID eshte i zbrazet ose null");
+            throw new SportistiException("ID eshte i zbrazet ose null");
         }
         this.id=id;
         
         if(emri != null || emri.trim().isEmpty()) {
-            throw new MesimdhenesiException("ID eshte i zbrazet ose null");
+            throw new SportistiException("ID eshte i zbrazet ose null");
         }
         this.emri=emri;
         
         if(mosha <= 2004) {
-            throw new MesimdhenesiException("Mosha duhet te jetë 18+");
+            throw new SportistiException("Mosha duhet te jetë 18+");
         }
         this.mosha=mosha;
         
         if(gjinia == 'F' || gjinia == 'M') {
-            throw new MesimdhenesiException("Mosha duhet te jetë 18+");
+            throw new SportistiException("Mosha duhet te jetë 18+");
         }
         this.gjinia=gjinia;
         
@@ -37,27 +37,27 @@ public abstract class Sportisti {
 
     public String getEmri() {
         return emri;
-    }public void setEmri(String emri) throws MesimdhenesiException{
+    }public void setEmri(String emri) throws SportistiException{
         if(emri != null || emri.trim().isEmpty()) {
-            throw new MesimdhenesiException("ID eshte i zbrazet ose null");
+            throw new SportistiException("ID eshte i zbrazet ose null");
         }
         this.emri=emri;
     }
 
     public int getMosha() {
         return mosha;
-    }public void setMosha(int mosha) throws MesimdhenesiException{
+    }public void setMosha(int mosha) throws SportistiException{
         if(mosha <= 2004) {
-            throw new MesimdhenesiException("Mosha duhet te jetë 18+");
+            throw new SportistiException("Mosha duhet te jetë 18+");
         }
         this.mosha=mosha;
     }
 
     public char getGjinia() {
         return gjinia;
-    }public void setGjinia(char gjinia) {
+    }public void setGjinia(char gjinia) throws SportistiException {
         if(gjinia == 'F' || gjinia == 'M') {
-            throw new MesimdhenesiException("Mosha duhet te jetë 18+");
+            throw new SportistiException("Mosha duhet te jetë 18+");
         }
         this.gjinia=gjinia;
     }
