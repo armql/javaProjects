@@ -151,8 +151,8 @@ public class Dyqani {
         MulliriKafes m2 = new MulliriKafes("142", "Ritech", "Wood");
         MulliriKafes m3 = new MulliriKafes("146", "Quantix", "Metal");
         
-        Pajisja t1 = new D.Turiela("642", "Ruszn", 50);
-        Pajisja t2 = new D.Turiela("622", "Ruszn", 50);
+        Pajisja t1 = new Dyqani.Turiela("642", "Ruszn", 50);
+        Pajisja t2 = new Dyqani.Turiela("622", "Ruszn", 50);
         Pajisja t3 = new Dyqani.Turiela("646", "Api", 20);
 
         

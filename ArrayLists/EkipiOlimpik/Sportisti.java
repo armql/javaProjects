@@ -9,24 +9,21 @@ public abstract class Sportisti {
     public abstract boolean garonIndividualisht();
 
     public Sportisti (String id, String emri, int mosha, char gjinia) throws SportistiException{
-        if(id != null || id.trim().isEmpty()) {
+        if(id == null || id.trim().isEmpty()) {
             throw new SportistiException("ID eshte i zbrazet ose null");
         }
         this.id=id;
         
-        if(emri != null || emri.trim().isEmpty()) {
-            throw new SportistiException("ID eshte i zbrazet ose null");
+        if(emri == null || emri.trim().isEmpty()) {
+            throw new SportistiException("Emri eshte i zbrazet ose null");
         }
         this.emri=emri;
         
-        if(mosha <= 2004) {
+        if(mosha > 2004) {
             throw new SportistiException("Mosha duhet te jetë 18+");
         }
         this.mosha=mosha;
         
-        if(gjinia == 'F' || gjinia == 'M') {
-            throw new SportistiException("Mosha duhet te jetë 18+");
-        }
         this.gjinia=gjinia;
         
     }
@@ -38,7 +35,7 @@ public abstract class Sportisti {
     public String getEmri() {
         return emri;
     }public void setEmri(String emri) throws SportistiException{
-        if(emri != null || emri.trim().isEmpty()) {
+        if(emri == null || emri.trim().isEmpty()) {
             throw new SportistiException("ID eshte i zbrazet ose null");
         }
         this.emri=emri;
@@ -47,7 +44,7 @@ public abstract class Sportisti {
     public int getMosha() {
         return mosha;
     }public void setMosha(int mosha) throws SportistiException{
-        if(mosha <= 2004) {
+        if(mosha > 2004) {
             throw new SportistiException("Mosha duhet te jetë 18+");
         }
         this.mosha=mosha;
@@ -56,24 +53,14 @@ public abstract class Sportisti {
     public char getGjinia() {
         return gjinia;
     }public void setGjinia(char gjinia) throws SportistiException {
-        if(gjinia == 'F' || gjinia == 'M') {
-            throw new SportistiException("Mosha duhet te jetë 18+");
-        }
         this.gjinia=gjinia;
     }
     
     public String toString() {
-        char gj;
-        gj = gjinia;
-        if (gj == 'f' || gj == 'F') {
-            System.out.println(" Femër, ");
-        }
-        else if (gj == 'm' || gj == 'M') {
-            System.out.println(" Mashkull, ");
-        }else {
-            System.out.println(" Nuk gjendet në sistem. ");
-        }
-        return id + " : " + emri + gj + mosha + " vjec.";
+        int vjec = 2022 - mosha;
+        return id + " : " + emri +
+        (gjinia == 'F' ? ", Femër, " : gjinia == 'M' ? ", Mashkull " : ", Gjinia nuk është e definuar, ")
+        + vjec + " vjec.";
     }
 
     public boolean equals(Object o) {

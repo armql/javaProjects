@@ -5,7 +5,7 @@ public class Karateisti extends Sportisti implements Rekuizita {
 
     public Karateisti(String id, String emri, int mosha, char gjinia, String stili) throws SportistiException {
         super(id, emri, mosha, gjinia);
-        if(stili != null || stili.trim().isEmpty()) {
+        if(stili == null || stili.trim().isEmpty()) {
             throw new SportistiException(" Stili është i zbrazët ose null. ");
         }
         this.stili = stili;
