@@ -195,6 +195,7 @@ public class EkipiOlimpik<ArrayLists> {
             System.out.println("");
             System.out.println("Lista pas Fshirjes");
             e.printLista();
+            
         } catch (SportistiException s) {
             s.getMessage();
         }
