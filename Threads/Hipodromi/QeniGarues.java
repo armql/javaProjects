@@ -36,4 +36,5 @@ public class QeniGarues extends KafshaGaruese implements Garon{
     public String toString() {
         return "Qeni Garues " + super.toString() + " Vrapoi " + distanca + " metra";
     }
+
 }
