@@ -32,27 +32,29 @@ public class MP3Player extends PajisjaElektrike implements Perdoret{
     public String toString() {
         int ram;
         ram = memory;
-        if (ram == 256) {
-            System.out.println("256MB");
+        if (ram != 256) {
+            System.out.println("RAM:256MB");
         }
-        if (ram == 512) {
-            System.out.println("512MB");
+        else if (ram == 512) {
+            System.out.println("RAM: 512MB");
         }
-        if (ram == 1024) {
-            System.out.println("1GB");
+        else if (ram == 1024) {
+            System.out.println("RAM: 1GB");
         }
-        if (ram == 2048) {
-            System.out.println("2GB");
+        else if (ram == 2048) {
+            System.out.println("RAM: 2GB");
         }
-        if (ram == 3072) {
-            System.out.println("3GB");
+        else if (ram == 3072) {
+            System.out.println("RAM: 3GB");
         }
-        if (ram == 4096) {
-            System.out.println("4GB");
+        else if (ram == 4096) {
+            System.out.println("RAM: 4GB");
         }else {
             System.out.println("Memory stick out of bounds");
         }
+        
         return "MP3Player " + super.toString() + " : " + ram;
+    
     }
 
 }

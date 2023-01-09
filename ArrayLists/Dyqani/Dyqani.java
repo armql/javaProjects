@@ -101,6 +101,16 @@ public class Dyqani {
         }
     }
 
+    public void printLista() {
+        Iterator<Pajisja> it = lista.iterator();
+
+        while (it.hasNext()) {
+            for (int i = 0; i < lista.size(); i++) {
+                System.out.println(i + ". " + it.next() + "\n");
+            }
+        }
+    }
+
     public static void main(String[] args) {
         try {
             Dyqani d = new Dyqani("Aresmus");
@@ -108,7 +118,7 @@ public class Dyqani {
             Enelaresja e1 = new Enelaresja("001", "Acer", 200, 'C', 8);
             Enelaresja e2 = new Enelaresja("002", "Benelo", 250, 'E', 2);
             Enelaresja e3 = new Enelaresja("003", "LIRE", 500, 'A', 2);
-            Enelaresja e5 = new Enelaresja("004", "Benelo", 500, 'A', 2);
+            Enelaresja e4 = new Enelaresja("004", "Benelo", 500, 'A', 2);
         
             MP3Player m1 = new MP3Player("010", "Apple", 80, 'A', 1024);
             MP3Player m2 = new MP3Player("011", "Apple Resp", 80, 'A', 2048);
@@ -125,7 +135,6 @@ public class Dyqani {
             d.shtoPajisje(e2);
             d.shtoPajisje(e3);
             d.shtoPajisje(e4);
-            d.shtoPajisje(e5);
             d.shtoPajisje(m1);
             d.shtoPajisje(m2);
             d.shtoPajisje(m3);
@@ -136,9 +145,23 @@ public class Dyqani {
             d.shtoPajisje(mk3);
             d.shtoPajisje(mk4);
 
+            System.out.println("Printohet lista:");
+            d.printLista();
+
             System.out.println("");
             System.out.println("Metoda shtypMaterialin:");
             d.shtypMaterialin("Metal");
+            
+            System.out.println("");
+            System.out.println("Metoda kaBateri:");
+            d.shtypBaterite(true);
+            
+            System.out.println("");
+            System.out.println("Metoda ktheProdhuesit:");
+            Pajisja[] temp1 = d.ktheProdhuesit("Apple");
+            for (Pajisja a : temp1){
+                System.out.println(a.toString());
+            }
             
         } catch (Exception e) {
             // TODO: handle exception
