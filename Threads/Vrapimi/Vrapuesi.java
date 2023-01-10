@@ -27,6 +27,7 @@ public class Vrapuesi extends Atleti{
         distanca += 10;
     }
 
+    @Override
     public void run() {
         Random r = new Random();
 
@@ -43,8 +44,9 @@ public class Vrapuesi extends Atleti{
         }
     }
 
+    @Override
     public String toString() {
-        return "Vrapuesi " + super.toString() + " me " + nrMedaljeve + " medalje," + " aktualisht ka arritur distancen" + distanca + "!";
+        return "Vrapuesi " + super.toString() + " me " + nrMedaljeve + " medalje," + " aktualisht ka arritur distancen " + distanca + "M!";
     }
 
 }

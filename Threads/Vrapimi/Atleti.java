@@ -1,5 +1,7 @@
 package Threads.Vrapimi;
 
+import javax.crypto.MacSpi;
+
 public abstract class Atleti extends Thread{
     private int nrRendor;
     private String emri;
@@ -22,6 +24,7 @@ public abstract class Atleti extends Thread{
         if (mosha < 0) {
             throw new AtletiException("Mosha eshte gabim");
         }
+        this.mosha=mosha;
         this.gjinia=gjinia;
         if (distanca < 0) {
             throw new AtletiException("Distanca eshte null");
@@ -52,6 +55,12 @@ public abstract class Atleti extends Thread{
         this.gjinia = gjinia;
     }
 
+    public int getMosha() {
+        return mosha;
+    }public void setMosha(int mosha) {
+        this.mosha = mosha;
+    }
+
     public int getDistanca() {
         return distanca;
     }public void setDistanca(int distanca) throws AtletiException{
@@ -61,6 +70,7 @@ public abstract class Atleti extends Thread{
         this.distanca=distanca;
     }
 
+    
     public int getGjatesiaEPistes() {
         return gjatesiaEPistes;
     }public void setGjatesiaEPistes(int gjatesiaEPistes) throws AtletiException{
