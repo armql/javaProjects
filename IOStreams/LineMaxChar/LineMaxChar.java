@@ -30,7 +30,7 @@ public class LineMaxChar {
 
         }
 
-        FileWriter fw = new FileWriter("ubt.txt\shk2.out");
+        FileWriter fw = new FileWriter("ubt.txt\\shk2.out");
         fw.write("Fjalia me e gjate ndodhet te rreshti " + rreshti_kushti);
         fw.close();    }
 

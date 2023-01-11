@@ -28,7 +28,7 @@ public class LineMaxWord {
             }
         }
         
-        FileWriter fw = new FileWriter("shk2.txt\shk2.out");
+        FileWriter fw = new FileWriter("shk2.txt\\shk2.out");
         fw.write("Fjala me e gjate: " + longestWord);
         fw.close();
     }

@@ -31,11 +31,14 @@ public abstract class Libri {
     public boolean equals(Object o) {
         if(o instanceof Libri) {
             Libri l = (Libri)o;
-            l.getIsbn().equals(isbn);
+            return l.getIsbn().equals(isbn);
+        }else {
+            return false;
         }
     }
 
     public String toString() {
         return isbn + " : " + titulli + " - " + vitiPublikimit;
     }
+
 }

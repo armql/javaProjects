@@ -30,7 +30,7 @@ public class LineMaxWords {
             }
         }
 
-        FileWriter fw = new FileWriter("shk2.txt\shk2.out");
+        FileWriter fw = new FileWriter("shk2.txt\\shk2.out");
         fw.write("Fjalet me me se shumti fjale " + rreshti_kushti);
         fw.close();
     }

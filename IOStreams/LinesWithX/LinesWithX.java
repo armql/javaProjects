@@ -23,7 +23,7 @@ public class LinesWithX {
             }
         }
         
-        FileWriter fw = new FileWriter("shk2.txt\shk2.out");
+        FileWriter fw = new FileWriter("shk2.txt\\shk2.out");
         fw.write(count + "Rreshta qe plotesojne kushtin");
         fw.close();
         

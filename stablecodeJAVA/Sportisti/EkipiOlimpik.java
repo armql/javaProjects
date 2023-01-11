@@ -36,14 +36,14 @@ public class EkipiOlimpik {
         for (int i = 0; i < index; i++) {
             if (sportistat[i] instanceof Vrapuesi) {
                 Vrapuesi v = (Vrapuesi)sportistat[i];
-                if(v.getDistanca() == distanca;) {
+                if(v.getDistanca() == distanca) {
                     System.out.println(sportistat[i]);
                 }
             }
         }
     }
 
-    public Atleti atletetMosha(int mosha) {
+    public Atleti[] atletetMosha(int mosha) {
 
         Atleti [] at = null;
         int count = 0;
@@ -75,11 +75,11 @@ public class EkipiOlimpik {
         return at;
     }
 
-    public Sportisti gjiniaMeERe(char gjinia) {
+    public Sportisti[] gjiniaMeERe(char gjinia) {
         
         Sportisti [] sportist = null;
         int count = 0;
-        int mosha;
+        int mosha = 0;
 
         for (int i = 0; i < index; i++) {
             if (sportistat[i].getGjinia() == gjinia) {

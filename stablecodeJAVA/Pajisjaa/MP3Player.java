@@ -20,7 +20,7 @@ public class MP3Player extends PajisjaElektrike {
     }
     
     public String toString () {
-        return "MP3Player " +  " - " + super.toString() + : + memoria + "GB";
+        return "MP3Player " +  " - " + super.toString() + " : " + memoria + "GB";
     }
     
 }

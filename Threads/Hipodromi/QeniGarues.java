@@ -17,6 +17,7 @@ public class QeniGarues extends KafshaGaruese implements Garon{
         distanca = distanca + 10;
     }
 
+    @Override
     public void run() {
         Random r = new Random();
 
@@ -28,7 +29,7 @@ public class QeniGarues extends KafshaGaruese implements Garon{
                 System.out.println(e);
             }
             if (distanca == GJATESIA_E_PISTES) {
-                System.out.println("Finished" + toString());
+                System.out.println("Finished " + toString());
             }
         }
     }
