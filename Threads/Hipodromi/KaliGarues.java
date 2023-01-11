@@ -28,7 +28,7 @@ public class KaliGarues extends KafshaGaruese implements Garon{
                 System.out.println(e);
             }
             if (distanca == GJATESIA_E_PISTES) {
-                System.out.println("FINISHED");
+                System.out.println("FINISHED" + toString());
             }
         }
     }

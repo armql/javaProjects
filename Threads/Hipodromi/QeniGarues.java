@@ -28,11 +28,12 @@ public class QeniGarues extends KafshaGaruese implements Garon{
                 System.out.println(e);
             }
             if (distanca == GJATESIA_E_PISTES) {
-                System.out.println("Finished");
+                System.out.println("Finished" + toString());
             }
         }
     }
 
+    @Override
     public String toString() {
         return "Qeni Garues " + super.toString() + " Vrapoi " + distanca + " metra";
     }
