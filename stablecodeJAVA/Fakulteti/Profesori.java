@@ -1,6 +1,6 @@
 public class Profesori extends Mesimdhenesi {
     
-    protected String thirrjaAkademike;
+    public String thirrjaAkademike;
 
     public Profesori(String emri, int vitiLindjes, String angazhimi, String thirrjaAkademike) {
         super(emri, vitiLindjes, angazhimi);
@@ -8,8 +8,8 @@ public class Profesori extends Mesimdhenesi {
     }
 
     @Override
-    public String mentoron() {
-    return " Mentoron punime diplome ";
+    public boolean mentoron() {
+    return true;
     }
     public String getThirrjaAkademike() {
         return thirrjaAkademike;

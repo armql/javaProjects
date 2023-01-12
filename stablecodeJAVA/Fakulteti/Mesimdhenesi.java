@@ -1,10 +1,10 @@
-
 public abstract class Mesimdhenesi {
 
     private String emri;
     private int vitiLindjes;
     private String angazhimi;
-    protected abstract String mentoron();
+    
+    public abstract boolean mentoron();
         
     public Mesimdhenesi(String emri, int vitiLindjes, String angazhimi) {
         this.emri = emri;

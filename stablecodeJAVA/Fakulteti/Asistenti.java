@@ -1,6 +1,6 @@
 public class Asistenti extends Mesimdhenesi{
     
-    protected String llojiUshtrimeve;
+    public String llojiUshtrimeve;
 
 
     public Asistenti(String emri, int vitiLindjes, String angazhimi, String llojiUshtrimeve) {
@@ -9,8 +9,8 @@ public class Asistenti extends Mesimdhenesi{
     }
 
     @Override
-    public String mentoron() {
-       return " Nuk mentoron punime diplome.";
+    public boolean mentoron() {
+       return false;
     }
 
     public String getLlojiUshtrimeve() {

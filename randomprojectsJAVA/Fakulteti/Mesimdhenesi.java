@@ -1,4 +1,4 @@
-
+package Fakulteti;
 public class Mesimdhenesi {
     
     //3 PARAMETRAT 

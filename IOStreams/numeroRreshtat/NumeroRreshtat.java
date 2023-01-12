@@ -1,5 +1,3 @@
-package IOStreams.numeroRreshtat;
-
 import java.io.*;
 
 public class NumeroRreshtat{
@@ -83,11 +81,5 @@ public class NumeroRreshtat{
 		
 		
 	}
-	
-	
-	
-	
-	
-	
 	
 }

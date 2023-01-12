@@ -1,3 +1,4 @@
+package Fakulteti;
 public class Fakulteti {
     //Atributi kerkuar
     public String drejtimi;
