@@ -84,9 +84,9 @@ public class Personi {
     }
 
     public String toString() {
-        return "Emri: " + emri + " Mbiemri: " + mbiemri + "\nMosha:" + mosha 
+        return "Emri: " + emri + " | Mbiemri: " + mbiemri + "\nMosha:" + mosha 
         + "\nGjinia:" + (gjinia == 'F' ? " Femer " : gjinia == 'M' ? " Mashkull " : " Nuk gjindet ne sistem!") 
-        + "\n Bilanci i vlefshem: " + bilanci + "€";
+        + "\nBilanci i vlefshem: " + bilanci + "EUR \n";
 
         /*
          MUND EDHE KESHTU TE PERDORET PER SHKAQE QE KERKOHET GJINIA DUHET TE DEFINOHET ME F-Femer dhe M-Mashkull ne toString();
