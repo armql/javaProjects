@@ -163,14 +163,12 @@ public class Fakulteti {
     
         }
 
-        Dekani d = new Dekani(); 
+        Dekani d = new Dekani("Arlind",1993); 
         if(kaDekan) {
             System.out.println("Ekziston dekani per drejtimin: " + drejtimi);
         }else {
             shtoMesimdhenesi(d);
             kaDekan = true;
-        }
-
         }
 
     }

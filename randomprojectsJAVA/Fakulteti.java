@@ -9,47 +9,6 @@ public class Fakulteti {
         nrMesimdhenesit = new Mesimdhenesi[nrM];
     }
 
-    
-    
-    
-
-    public static void main(String[] args) {
-        
-        Fakulteti UBT = new Fakulteti("Shkenca Kompjuterike dhe Inxhinieri - SHKI",15);
-
-        Mesimdhenesi m1 = new Mesimdhenesi("Blerim Blerimi",1990,"Profesor");
-        Mesimdhenesi m2 = new Mesimdhenesi("Blerim Gilani",1991,"Dr.Profesor");
-        Mesimdhenesi m3 = new Mesimdhenesi("Lavdim valoranti",1990,"Profesor gjthsht/ Immortal ne Valorant");
-        Mesimdhenesi m4 = new Mesimdhenesi("Elton Aliu",1991,"Profesor");
-        Mesimdhenesi m5 = new Mesimdhenesi("Zhilbert Tafa",1990,"Profesor");
-        Mesimdhenesi m6 = new Mesimdhenesi("Valdrin Haxhiu", 2003, "Profesor");
-                
-        UBT.shtoMesimdhenes(m1);
-        UBT.shtoMesimdhenes(m2);
-        UBT.shtoMesimdhenes(m3);
-        UBT.shtoMesimdhenes(m4);
-        UBT.shtoMesimdhenes(m5);
-        UBT.shtoMesimdhenes(m6);
-        System.out.println("Mesimdhenesi test:");
-        System.out.println(m1);
-        System.out.println("");
-        System.out.println("Mesimdhenesi egziston test:");
-        System.out.println(UBT.egziston(m2));
-        System.out.println("");
-        System.out.println("Mesimdhenesi me i ri");
-        System.out.println(UBT.mesimdhenesiMeIRI());
-        System.out.println("");
-        System.out.println("Angazhimet si profesor");    	
-		Mesimdhenesi[] temp = UBT.ktheAngazhimet("Profesor");
-		for(Mesimdhenesi m : temp){
-			System.out.println(m.toString());
-		}
-	
-    
-    }
-    
-
-
     public Mesimdhenesi[] ktheAngazhimet(String a){
 			
         int count = 0;
@@ -120,6 +79,42 @@ public class Fakulteti {
             }
         }
         return meIVjeter;
+    }
+
+
+    public static void main(String[] args) {
+        
+        Fakulteti UBT = new Fakulteti("Shkenca Kompjuterike dhe Inxhinieri - SHKI",15);
+
+        Mesimdhenesi m1 = new Mesimdhenesi("Blerim Blerimi",1990,"Profesor");
+        Mesimdhenesi m2 = new Mesimdhenesi("Blerim Gilani",1991,"Dr.Profesor");
+        Mesimdhenesi m3 = new Mesimdhenesi("Lavdim valoranti",1990,"Profesor gjthsht/ Immortal ne Valorant");
+        Mesimdhenesi m4 = new Mesimdhenesi("Elton Aliu",1991,"Profesor");
+        Mesimdhenesi m5 = new Mesimdhenesi("Zhilbert Tafa",1990,"Profesor");
+        Mesimdhenesi m6 = new Mesimdhenesi("Valdrin Haxhiu", 2003, "Profesor");
+                
+        UBT.shtoMesimdhenes(m1);
+        UBT.shtoMesimdhenes(m2);
+        UBT.shtoMesimdhenes(m3);
+        UBT.shtoMesimdhenes(m4);
+        UBT.shtoMesimdhenes(m5);
+        UBT.shtoMesimdhenes(m6);
+        System.out.println("Mesimdhenesi test:");
+        System.out.println(m1);
+        System.out.println("");
+        System.out.println("Mesimdhenesi egziston test:");
+        System.out.println(UBT.egziston(m2));
+        System.out.println("");
+        System.out.println("Mesimdhenesi me i ri");
+        System.out.println(UBT.mesimdhenesiMeIRI());
+        System.out.println("");
+        System.out.println("Angazhimet si profesor");    	
+		Mesimdhenesi[] temp = UBT.ktheAngazhimet("Profesor");
+		for(Mesimdhenesi m : temp){
+			System.out.println(m.toString());
+		}
+	
+    
     }
     
 }

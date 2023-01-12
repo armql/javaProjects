@@ -1,3 +1,4 @@
+package innerClasses.innerClasesv2;
 public abstract class Mesimdhenesi {
     private String emri;
     private int vitiLindjes;

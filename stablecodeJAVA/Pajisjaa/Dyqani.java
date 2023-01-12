@@ -18,10 +18,17 @@ public class Dyqani {
     }
        
     {
+        Pajisja t1 = new Dyqani.Turiela("642", "Ruszn", 50);
+        Pajisja t2 = new Dyqani.Turiela("622", "Ruszn", 50);
+        Pajisja t3 = new Dyqani.Turiela("646", "Api", 20);
+
         Dyqani.TV tv = new Dyqani.TV("351", "Sony", 120, 'A', true);
         pajisjet = new Pajisja[numriP];   
 
         shtoPajisje(tv);
+        shtoPajisje(t1);
+        shtoPajisje(t2);
+        shtoPajisje(t3);
     }
 
     public class Turiela extends Pajisja {
@@ -151,10 +158,7 @@ public class Dyqani {
         MulliriKafes m2 = new MulliriKafes("142", "Ritech", "Wood");
         MulliriKafes m3 = new MulliriKafes("146", "Quantix", "Metal");
         
-        Pajisja t1 = new Dyqani.Turiela("642", "Ruszn", 50);
-        Pajisja t2 = new Dyqani.Turiela("622", "Ruszn", 50);
-        Pajisja t3 = new Dyqani.Turiela("646", "Api", 20);
-
+        
         
         
         Dyqani.TV tv1 = new Dyqani.TV("744", "Sony", 240, 'A', false);
@@ -171,9 +175,6 @@ public class Dyqani {
         d.shtoPajisje(m2);
         d.shtoPajisje(m3);
 
-        d.shtoPajisje(t1);
-        d.shtoPajisje(t2);
-        d.shtoPajisje(t3);
         d.shtoPajisje(tv1);
         d.shtoPajisje(tv2);
         d.shtoPajisje(tv3);

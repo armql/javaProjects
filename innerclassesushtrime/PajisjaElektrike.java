@@ -5,7 +5,7 @@ public abstract class PajisjaElektrike extends Pajisja {
     private char kategoriaShpenzuese;
 
     public PajisjaElektrike (String numriSerik, String prodhuesi, int voltazhi, char kategoriaShpenzuese) {
-        super(numriSerik, prodhuesi)
+        super(numriSerik, prodhuesi);
         this.voltazhi=voltazhi;
         this.kategoriaShpenzuese=kategoriaShpenzuese;
     }

@@ -110,21 +110,20 @@ public class Biblioteka {
 
     public void shtoRegjistrin(String isbn, String titulli) {
         class Regjistri extends Libri {
-                public Regjistri() {
+            public Regjistri() {
                     super(isbn,titulli,2022);
-                }
+            }
 
                 @Override
-                public boolean kaDetyra(){
-                    return false;
-                }
+            public boolean kaDetyra(){
+                return false;
+            }
 
-                public String toString() {
-                    return "Regjistri " + super.toString();
-                }
-            
+            public String toString() {
+                return "Regjistri " + super.toString();
             }
             
+        }
             Regjistri regj = new Regjistri();
             if(kaRegjistra) {
                 System.out.println("Ekziston Regjistri per: " + emri);
@@ -133,7 +132,7 @@ public class Biblioteka {
                 kaRegjistra = true;
             }
             
-        }
+        
     
     }
 
@@ -175,8 +174,5 @@ public class Biblioteka {
     }
 
 
-    public static void main(String[] args) {
-        Biblioteka
-    }
 
 }
