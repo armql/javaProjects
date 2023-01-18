@@ -1,0 +1,2 @@
+LibriShkollor;12345;Java 1;2001;SHKI 1
+Enciklopedia;42345;Anatomia 1;2012;5 

@@ -4,6 +4,7 @@ import java.io.*;
 
 public class LineMaxWord {
     private String filePath;
+    
     private FileReader fr;
     private BufferedReader br;
 
