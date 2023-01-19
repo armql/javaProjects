@@ -3,7 +3,6 @@ package DSH;
 import java.util.HashMap;
 
 public abstract class Hapesira {
-    //TODO: ATTRIBUTE:nr needs to be UNIQUE HASHMAPS'
     private int nr;  
     private String pershkrimi;
     private double cmimi;
@@ -12,15 +11,15 @@ public abstract class Hapesira {
 
     public Hapesira(int nr, String pershkrimi, double cmimi) throws RezervimiException{
         if (nr < 0) {
-            throw new RezervimiException("Numer negativ");
+            throw new RezervimiException("Numri gabim ose negativ.");
         }
         this.nr = nr;
         if (pershkrimi == null || pershkrimi.trim().isEmpty()) {
-            throw new RezervimiException("Pershkrimi eshte null ose i zbrazet");
+            throw new RezervimiException("Pershkrimi eshte null ose i zbrazet.");
         }
         this.pershkrimi = pershkrimi;
         if (cmimi < 0) {
-            throw new RezervimiException("Numer negativ");
+            throw new RezervimiException("Numri gabim ose negativ.");
         }
         this.cmimi = cmimi;
     }
@@ -37,7 +36,7 @@ public abstract class Hapesira {
         return cmimi;
     }public void setCmimi(double cmimi) throws RezervimiException{
         if (cmimi < 0) {
-            throw new RezervimiException("Numer negativ");
+            throw new RezervimiException("Numri gabim ose negativ.");
         }
         this.cmimi = cmimi;
     }
