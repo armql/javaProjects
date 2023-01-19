@@ -20,7 +20,7 @@ public class Qyteti {
             this.klienti=klienti;
         }
 
-        public void run() {
+        public void run(){
             Random rd = new Random();
 
             while(true) {
