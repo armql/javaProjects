@@ -39,7 +39,14 @@ public class Klienti {
         if(h == null) {
             throw new RezervimiException("Hoteli nuk eshte inicializuar");
         }
-        if(h.
+        for (int i = 0; i < hapesiratERezervuara; i++) {
+            if (hapesiratERezervuara[i] instanceof Hoteli) {
+                Hoteli h = (Hoteli)hapesiratERezervuara[i];
+                if (h.radh) {
+                    
+                }
+            }
+        }
     }
 
     

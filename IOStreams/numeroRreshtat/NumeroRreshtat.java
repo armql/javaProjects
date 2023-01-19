@@ -1,5 +1,4 @@
 import java.io.*;
-
 public class NumeroRreshtat{
 	String fileIn;
 	String fileOut;
