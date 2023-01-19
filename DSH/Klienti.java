@@ -1,15 +1,14 @@
 package DSH;
 
 import java.util.ArrayList;
-public class Klienti extends Hoteli{
+public class Klienti {
     private String emri;
     private int mosha;
     private char gjinia;
     private ArrayList<Hapesira> hapesiratERezervuara;
 
 
-    public Klienti(String emriHotelit,String emri, int mosha, char gjinia) throws RezervimiException{
-        super(emriHotelit);
+    public Klienti(String emri, int mosha, char gjinia) throws RezervimiException{
         if (emri == null || emri.trim().isEmpty()) {
             throw new RezervimiException("Emri nuk eshte inicializuar ose eshte i zbrazet.");
         }
@@ -37,7 +36,7 @@ public class Klienti extends Hoteli{
     }
 
     public boolean merreRradhen(Hoteli h) throws RezervimiException{
-        radha.lock();
+        h.radha.lock();
         try{
             if (h == null) {
                 throw new RezervimiException("Hoteli nuk ekziston");
@@ -49,22 +48,22 @@ public class Klienti extends Hoteli{
             return false;
         }
         finally{
-            radha.unlock();
+        h.radha.unlock();
         }
     }
     
     public void rezervo(Hoteli h) throws RezervimiException{
-        radha.lock();
+        h.radha.lock();
         try{
             if (merreRradhen(h) == true) {
-                hapesiratERezervuara.addAll(lista);
+                hapesiratERezervuara.addAll(h.lista);
             }else {
-                System.out.println( radha + " . " + emri + " nuk e morri rradhen ne hotelin " + h );
+                System.out.println( h.radha + " . " + emri + " nuk e morri rradhen ne hotelin " + h );
                 return;
             }
         }
         finally{
-            radha.unlock();
+        h.radha.unlock();
         }
     }
 

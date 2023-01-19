@@ -1,10 +1,7 @@
 package DSH;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.Buffer;
 import java.util.*;
 import java.util.concurrent.locks.*;
 
@@ -25,6 +22,11 @@ public class Hoteli {
         return emriHotelit;
     }
 
+    public ReentrantLock getRadha() {
+        return radha;
+    }
+
+
     public void shtoHapesiren(Hapesira h) throws RezervimiException {
         if (h == null) {
             throw new RezervimiException("Hapesira nuk eshte inicializuar");
@@ -42,11 +44,11 @@ public class Hoteli {
         return false;
     }
 
-    public Hapesira rezervoHapsiren(Klienti k) throws RezervimiException{
+    public Hapesira rezervoHapsiren(Klienti k) {
         radha.lock();
         try{
             if(lista.isEmpty()) {
-                throw new RezervimiException("Nuk ka ndonje hapesire ne hotel.");
+                System.out.println("Lista eshte e zbrazet");
             }
         
             Iterator<Hapesira> it = lista.iterator();
