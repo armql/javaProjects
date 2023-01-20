@@ -1,0 +1,4 @@
+Dion;M;21
+Trim;M;26
+Blerim;M;30
+Lavdim;M;31
