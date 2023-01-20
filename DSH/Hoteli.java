@@ -47,10 +47,7 @@ public class Hoteli {
     public Hapesira rezervoHapsiren(Klienti k) {
         radha.lock();
         try{
-            if(lista.isEmpty()) {
-                System.out.println("Lista eshte e zbrazet");
-            }
-        
+
             Iterator<Hapesira> it = lista.iterator();
 
             while(it.hasNext()) {
@@ -97,6 +94,7 @@ public class Hoteli {
         for(Klienti k : klienti.keySet()){
             ArrayList<Hapesira> hapsirat = klienti.get(k);
             String emri = k.getEmri() + ".txt";
+
             FileWriter fw = new FileWriter(emri);
             fw.write("Klienti: " + k.getEmri() + " " + k.getGjinia() + " " + k.getMosha() + " vjec\n");
             fw.write("------------------------------------------------------------------------\n");
