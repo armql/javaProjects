@@ -10,16 +10,9 @@ public class Qyteti {
     Hoteli h;
     ArrayList<Klienti> klientet = new ArrayList<Klienti>();
 
-    FileReader fr;
-    BufferedReader br;
-    String filePath = "hapsirat.txt";
 
-    public Qyteti(String filePath) throws RezervimiException,IOException{
+    public Qyteti() throws RezervimiException,IOException{
         h = new Hoteli("Latilo");
-        this.filePath=filePath;
-
-        FileReader fr = new FileReader(filePath);
-        BufferedReader br = new BufferedReader(fr);
     }
 
     class Rezervimi extends Thread{
@@ -31,20 +24,21 @@ public class Qyteti {
             this.klienti=klienti;
         }
 
+        @Override
         public void run(){
             Random rd = new Random();
 
             while(true) {
                 try {
-                    Hapesira hap = hotel.rezervoHapsiren(klienti);
+                    Hapesira hapsirat = hotel.rezervoHapsiren(klienti);
                     
-                    if (hap == null) {
+                    if (hapsirat == null) {
                         return;
                     }
 
-                    System.out.println(klienti + " rezervoi hapsiren " + hap);
                     Thread.sleep(rd.nextInt(1250) + 250);
-                } catch (InterruptedException e) {
+                    System.out.println(klienti + " rezervoi hapsiren " + hapsirat);
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -53,28 +47,38 @@ public class Qyteti {
 
     public void lexoHapsirat() throws IOException,RezervimiException {
         String line = "";
+
+        
+        String filePath = "C:\\Users\\Halit\\OneDrive - ubt-uni.net\\javaProjects\\DSH\\hapsirat.txt";
+        FileReader fr = new FileReader(filePath);
+        BufferedReader br = new BufferedReader(fr);
+
         while ((line = br.readLine()) != null) {
             String[] pjeset = line.split(";");
 
-            if(pjeset.length == 5) {
+            if(pjeset.length >= 5) {
                 String tipi = pjeset[0];
                 int nr = Integer.parseInt(pjeset[1]);
                 String pershkrimi = pjeset[2];
                 double cmimi = Double.parseDouble(pjeset[3]);
-                String atributi = pjeset[4];
                 if(tipi.equals("DhomaStandarde")) {
-                    h.shtoHapesiren(new DhomaStandarde(nr, pershkrimi, cmimi, false));
+                    Boolean kaTV = Boolean.parseBoolean(pjeset[4]);
+                    h.shtoHapesiren(new DhomaStandarde(nr, pershkrimi, cmimi, kaTV));
                 }
                 if (tipi.equals("DhomaVIP")) {
-                    h.shtoHapesiren(new DhomaVIP(nr, pershkrimi, cmimi, false));
+                    Boolean kaGjakuzi = Boolean.parseBoolean(pjeset[4]);
+                    h.shtoHapesiren(new DhomaVIP(nr, pershkrimi, cmimi, kaGjakuzi));
                 }
                 if(tipi.equals("Restorant")) {
-                    h.shtoHapesiren(new Restoranti(nr, pershkrimi, cmimi, nr));
+                    int kapaciteti = Integer.parseInt(pjeset[4]);
+                    h.shtoHapesiren(new Restoranti(nr, pershkrimi, cmimi, kapaciteti));
                 }
                 if(tipi.equals("SallaPerKonferenca")){
-                    h.shtoHapesiren(new SallaPerKonferenca(nr, pershkrimi, cmimi, nr));
+                    int kapaciteti = Integer.parseInt(pjeset[4]);
+                    h.shtoHapesiren(new SallaPerKonferenca(nr, pershkrimi, cmimi, kapaciteti));
                 }
             }
+
         }
         br.close();
     }
@@ -90,7 +94,7 @@ public class Qyteti {
     }
 
     public void lexoKlientet() throws RezervimiException,IOException{
-        String fileKlienti = "klientet.txt";
+        String fileKlienti = "C:\\Users\\Halit\\OneDrive - ubt-uni.net\\javaProjects\\DSH\\klientet.txt";
 
         FileReader frk = new FileReader(fileKlienti);
         BufferedReader brk = new BufferedReader(frk);
@@ -100,7 +104,7 @@ public class Qyteti {
         while ((line = brk.readLine()) != null) {
             String[] pjeset = line.split(";");
 
-            if (pjeset.length < 53) {
+            if (pjeset.length < 3) {
                 
                 String emri = pjeset[0];
                 char gjinia = pjeset[1].charAt(0);
@@ -112,7 +116,78 @@ public class Qyteti {
             }
 
         }
-        br.close();
+        brk.close();
+    }
 
+    public void filloRezervimet() {
+        for (Klienti k : klientet) {
+            Rezervimi r = new Rezervimi(h, k);
+            r.start();
+            
+        }
+    }
+
+    public static void main(String[] args) {
+        Qyteti Gilani = null;
+        try {
+            Gilani = new Qyteti();
+
+            DhomaStandarde d1 = new DhomaStandarde(20, "Beige Room no.1", 39.90, true);
+            DhomaStandarde d2 = new DhomaStandarde(21, "Beige Room no.2", 39.90, true);
+            DhomaStandarde d3 = new DhomaStandarde(23, "Blue Room no.3", 39.90, true);
+            DhomaStandarde d4 = new DhomaStandarde(24, "Beige Room no.4", 39.90, true);
+            DhomaStandarde d5 = new DhomaStandarde(25, "Rouge Room no.5", 39.90, true);
+
+            DhomaVIP dv1 = new DhomaVIP(11, "Talikos Croc's Finest ISTANBUL", 120.50, true);
+            DhomaVIP dv2 = new DhomaVIP(12, "Talikos Croc's Finest LASVEGAS", 120.50, true);
+            DhomaVIP dv3 = new DhomaVIP(13, "Talikos Croc's Finest TOKYO", 120.50, true);
+            DhomaVIP dv4 = new DhomaVIP(14, "Talikos Croc's Finest RIO", 120.50, true);
+
+            SallaPerKonferenca s1 = new SallaPerKonferenca(5, "Taliko's Exotic Conference Room", 90, 40);
+            SallaPerKonferenca s2 = new SallaPerKonferenca(6, "Taliko's Elegant Conference Room", 80, 60);
+
+            Restoranti rs1 = new Restoranti(2, "Taliko's Bar", 15, 120);
+            Restoranti rs2 = new Restoranti(3, "Taliko's Restaurant", 20, 4000);
+            Restoranti rs3 = new Restoranti(4, "Taliko's Night Club", 20, 4000);
+
+            Klienti k1 = new Klienti("Third", 29, 'M');
+            Klienti k2 = new Klienti("Six", 27, 'M');
+            Klienti k3 = new Klienti("Five", 35, 'F');
+            Klienti k4 = new Klienti("Ten", 39, 'M');
+            
+            Gilani.h.shtoHapesiren(d1);
+            Gilani.h.shtoHapesiren(d2);
+            Gilani.h.shtoHapesiren(d3);
+            Gilani.h.shtoHapesiren(d4);
+            Gilani.h.shtoHapesiren(d5);
+
+            Gilani.h.shtoHapesiren(dv1);
+            Gilani.h.shtoHapesiren(dv2);
+            Gilani.h.shtoHapesiren(dv3);
+            Gilani.h.shtoHapesiren(dv4);
+
+            Gilani.h.shtoHapesiren(s1);
+            Gilani.h.shtoHapesiren(s2);
+
+            Gilani.h.shtoHapesiren(rs1);
+            Gilani.h.shtoHapesiren(rs2);
+            Gilani.h.shtoHapesiren(rs3);
+
+            Gilani.shtoKlientin(k1);
+            Gilani.shtoKlientin(k2);
+            Gilani.shtoKlientin(k3);
+            Gilani.shtoKlientin(k4);
+            
+            Gilani.lexoHapsirat();
+            Gilani.lexoKlientet();
+            System.out.println("Fillojne Rezervimet!");
+            Gilani.filloRezervimet();
+            Gilani.h.faturo();
+            
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        } catch (RezervimiException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
