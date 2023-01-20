@@ -37,7 +37,7 @@ public class Qyteti {
                     }
 
                     Thread.sleep(rd.nextInt(1250) + 250);
-                    System.out.println(klienti + " rezervoi hapsiren " + hapsirat);
+                    System.out.println(klienti + "\nRezervoi hapsiren " + hapsirat + " \n");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -49,7 +49,7 @@ public class Qyteti {
         String line = "";
 
         
-        String filePath = "C:\\Users\\Halit\\OneDrive - ubt-uni.net\\javaProjects\\DSH\\hapsirat.txt";
+        String filePath = "DSH\\hapsirat.txt";
         FileReader fr = new FileReader(filePath);
         BufferedReader br = new BufferedReader(fr);
 
@@ -94,27 +94,31 @@ public class Qyteti {
     }
 
     public void lexoKlientet() throws RezervimiException,IOException{
-        String fileKlienti = "C:\\Users\\Halit\\OneDrive - ubt-uni.net\\javaProjects\\DSH\\klientet.txt";
+        String line = "";
+
+        String fileKlienti = "DSH\\klientet.txt";
 
         FileReader frk = new FileReader(fileKlienti);
         BufferedReader brk = new BufferedReader(frk);
 
-        String line = "";
 
         while ((line = brk.readLine()) != null) {
             String[] pjeset = line.split(";");
 
             if (pjeset.length < 3) {
-                
-                String emri = pjeset[0];
-                char gjinia = pjeset[1].charAt(0);
-                int mosha = Integer.parseInt(pjeset[2]);
+
+                String tipi = pjeset[0];
+                String emri = pjeset[1];
+                char gjinia = pjeset[2].charAt(0);
+                int mosha = Integer.parseInt(pjeset[3]);
             
-                Klienti k = new Klienti(emri, mosha, gjinia);
-                shtoKlientin(k);
-
+                if (tipi.equals("Klienti")) {
+                    Klienti k = new Klienti(emri, gjinia, mosha);
+                    System.out.println(k);
+                    shtoKlientin(k);
+                }
             }
-
+            
         }
         brk.close();
     }
@@ -150,10 +154,11 @@ public class Qyteti {
             Restoranti rs2 = new Restoranti(3, "Taliko's Restaurant", 20, 4000);
             Restoranti rs3 = new Restoranti(4, "Taliko's Night Club", 20, 4000);
 
-            Klienti k1 = new Klienti("Third", 29, 'M');
-            Klienti k2 = new Klienti("Six", 27, 'M');
-            Klienti k3 = new Klienti("Five", 35, 'F');
-            Klienti k4 = new Klienti("Ten", 39, 'M');
+            Klienti k1 = new Klienti("Third", 'M', 24);
+            Klienti k2 = new Klienti("Six", 'M', 32);
+            Klienti k5 = new Klienti("Six", 'F', 27);
+            Klienti k3 = new Klienti("Five", 'F', 26);
+            Klienti k4 = new Klienti("Ten", 'M', 39);
             
             Gilani.h.shtoHapesiren(d1);
             Gilani.h.shtoHapesiren(d2);
@@ -177,9 +182,12 @@ public class Qyteti {
             Gilani.shtoKlientin(k2);
             Gilani.shtoKlientin(k3);
             Gilani.shtoKlientin(k4);
+            Gilani.shtoKlientin(k5);
             
             Gilani.lexoHapsirat();
+            System.out.println(" lexohenKlientet");
             Gilani.lexoKlientet();
+
             System.out.println("Fillojne Rezervimet!");
             Gilani.filloRezervimet();
             Gilani.h.faturo();

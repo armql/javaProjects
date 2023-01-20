@@ -93,7 +93,7 @@ public class Hoteli {
     public void faturo() throws RezervimiException,IOException {
         for(Klienti k : klienti.keySet()){
             ArrayList<Hapesira> hapsirat = klienti.get(k);
-            String emri = k.getEmri() + ".txt";
+            String emri = k.getEmri() + ".out";
 
             FileWriter fw = new FileWriter(emri);
             fw.write("Klienti: " + k.getEmri() + " " + k.getGjinia() + " " + k.getMosha() + " vjec\n");

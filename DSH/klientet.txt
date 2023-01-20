@@ -1,4 +1,4 @@
-Dion;M;21
-Trim;M;26
-Blerim;M;30
-Lavdim;M;31
+Klienti;Dion;M;21
+Klienti;Trim;M;26
+Klienti;Blerim;M;30
+Klienti;Lavdim;M;31

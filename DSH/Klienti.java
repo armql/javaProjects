@@ -8,7 +8,7 @@ public class Klienti {
     private ArrayList<Hapesira> hapesiratERezervuara;
 
 
-    public Klienti(String emri, int mosha, char gjinia) throws RezervimiException{
+    public Klienti(String emri, char gjinia, int mosha) throws RezervimiException{
         if (emri == null || emri.trim().isEmpty()) {
             throw new RezervimiException("Emri nuk eshte inicializuar ose eshte i zbrazet.");
         }
@@ -25,22 +25,20 @@ public class Klienti {
         return emri;
     }
 
-    public int getMosha() {
-        return mosha;
-    }
-    
     public char getGjinia() {
         return gjinia;
     }public void setGjinia(char gjinia) {
         this.gjinia = gjinia;
     }
 
+    public int getMosha() {
+        return mosha;
+    }
+    
+    
     public boolean merreRradhen(Hoteli h) throws RezervimiException{
         h.radha.lock();
         try{
-            if (h == null) {
-                throw new RezervimiException("Hoteli nuk ekziston");
-            }
             ArrayList<Hapesira> temp = h.klienti.get(h);
             if (temp.isEmpty() == false) {
                 return true;
@@ -67,18 +65,18 @@ public class Klienti {
         }
     }
 
-    public String toString() {
-        return emri + " - " 
-        + (gjinia == 'M' ? " Mashkull " : gjinia == 'F' ? " Femer " : " nuk gjindet ne sistem. ")
-        + mosha + " vjec.";
-    }
-
     public boolean equals(Klienti k) {
         if (k.getEmri().equals(emri) && k.getGjinia() == gjinia && k.getMosha() == mosha) {
             return true;
         }
 
         return false;
+    }
+
+    public String toString() {
+        return emri + " - " 
+        + (gjinia == 'M' ? " Mashkull " : gjinia == 'F' ? " Femer " : " nuk gjindet ne sistem. ")
+        + mosha + " vjec.";
     }
 
 }
