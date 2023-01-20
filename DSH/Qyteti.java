@@ -61,21 +61,39 @@ public class Qyteti {
                 int nr = Integer.parseInt(pjeset[1]);
                 String pershkrimi = pjeset[2];
                 double cmimi = Double.parseDouble(pjeset[3]);
+
                 if(tipi.equals("DhomaStandarde")) {
                     Boolean kaTV = Boolean.parseBoolean(pjeset[4]);
-                    h.shtoHapesiren(new DhomaStandarde(nr, pershkrimi, cmimi, kaTV));
+                    DhomaStandarde dstandard;
+                    h.shtoHapesiren(
+                        dstandard = new DhomaStandarde(nr, pershkrimi, cmimi, kaTV)
+                    );
+                    System.out.println(dstandard);
                 }
                 if (tipi.equals("DhomaVIP")) {
                     Boolean kaGjakuzi = Boolean.parseBoolean(pjeset[4]);
-                    h.shtoHapesiren(new DhomaVIP(nr, pershkrimi, cmimi, kaGjakuzi));
+                    DhomaVIP dvip;
+                    h.shtoHapesiren(
+                        dvip = new DhomaVIP(nr, pershkrimi, cmimi, kaGjakuzi)
+                    );
+                    System.out.println(dvip);
                 }
                 if(tipi.equals("Restorant")) {
                     int kapaciteti = Integer.parseInt(pjeset[4]);
-                    h.shtoHapesiren(new Restoranti(nr, pershkrimi, cmimi, kapaciteti));
+                    Restoranti r;
+                    h.shtoHapesiren(
+                        r = new Restoranti(nr, pershkrimi, cmimi, kapaciteti)
+                    );
+                    System.out.println(r);
                 }
                 if(tipi.equals("SallaPerKonferenca")){
                     int kapaciteti = Integer.parseInt(pjeset[4]);
-                    h.shtoHapesiren(new SallaPerKonferenca(nr, pershkrimi, cmimi, kapaciteti));
+                    SallaPerKonferenca k;
+                    
+                    h.shtoHapesiren(
+                        k = new SallaPerKonferenca(nr, pershkrimi, cmimi, kapaciteti)
+                    );
+                    System.out.println(k);
                 }
             }
 
@@ -105,7 +123,7 @@ public class Qyteti {
         while ((line = brk.readLine()) != null) {
             String[] pjeset = line.split(";");
 
-            if (pjeset.length < 3) {
+            if (pjeset.length >= 3) {
 
                 String tipi = pjeset[0];
                 String emri = pjeset[1];
@@ -118,7 +136,7 @@ public class Qyteti {
                     shtoKlientin(k);
                 }
             }
-            
+
         }
         brk.close();
     }
@@ -136,29 +154,33 @@ public class Qyteti {
         try {
             Gilani = new Qyteti();
 
+            //testing without hapsirat.txt
             DhomaStandarde d1 = new DhomaStandarde(20, "Beige Room no.1", 39.90, true);
             DhomaStandarde d2 = new DhomaStandarde(21, "Beige Room no.2", 39.90, true);
             DhomaStandarde d3 = new DhomaStandarde(23, "Blue Room no.3", 39.90, true);
             DhomaStandarde d4 = new DhomaStandarde(24, "Beige Room no.4", 39.90, true);
             DhomaStandarde d5 = new DhomaStandarde(25, "Rouge Room no.5", 39.90, true);
 
+            //testing without hapsirat.txt
             DhomaVIP dv1 = new DhomaVIP(11, "Talikos Croc's Finest ISTANBUL", 120.50, true);
             DhomaVIP dv2 = new DhomaVIP(12, "Talikos Croc's Finest LASVEGAS", 120.50, true);
             DhomaVIP dv3 = new DhomaVIP(13, "Talikos Croc's Finest TOKYO", 120.50, true);
             DhomaVIP dv4 = new DhomaVIP(14, "Talikos Croc's Finest RIO", 120.50, true);
 
+            //testing without hapsirat.txt
             SallaPerKonferenca s1 = new SallaPerKonferenca(5, "Taliko's Exotic Conference Room", 90, 40);
             SallaPerKonferenca s2 = new SallaPerKonferenca(6, "Taliko's Elegant Conference Room", 80, 60);
 
+            //testing without hapsirat.txt
             Restoranti rs1 = new Restoranti(2, "Taliko's Bar", 15, 120);
             Restoranti rs2 = new Restoranti(3, "Taliko's Restaurant", 20, 4000);
             Restoranti rs3 = new Restoranti(4, "Taliko's Night Club", 20, 4000);
 
-            Klienti k1 = new Klienti("Third", 'M', 24);
-            Klienti k2 = new Klienti("Six", 'M', 32);
-            Klienti k5 = new Klienti("Six", 'F', 27);
-            Klienti k3 = new Klienti("Five", 'F', 26);
-            Klienti k4 = new Klienti("Ten", 'M', 39);
+            // Testing if it works without klientet.txt
+            Klienti k11 = new Klienti("Third", 'M', 24);
+            Klienti k12 = new Klienti("Six", 'M', 32);
+            Klienti k13 = new Klienti("Five", 'F', 26);
+            Klienti k14 = new Klienti("Ten", 'M', 39);
             
             Gilani.h.shtoHapesiren(d1);
             Gilani.h.shtoHapesiren(d2);
@@ -178,19 +200,23 @@ public class Qyteti {
             Gilani.h.shtoHapesiren(rs2);
             Gilani.h.shtoHapesiren(rs3);
 
-            Gilani.shtoKlientin(k1);
-            Gilani.shtoKlientin(k2);
-            Gilani.shtoKlientin(k3);
-            Gilani.shtoKlientin(k4);
-            Gilani.shtoKlientin(k5);
+            Gilani.shtoKlientin(k11);
+            Gilani.shtoKlientin(k12);
+            Gilani.shtoKlientin(k13);
+            Gilani.shtoKlientin(k14);
             
+            System.out.println("--------------------lexohenHapsirat--------------------");
             Gilani.lexoHapsirat();
-            System.out.println(" lexohenKlientet");
+            System.out.println("");
+            System.out.println("---lexohenKlientet---");
             Gilani.lexoKlientet();
 
+            System.out.println("-------------------------------------------------------------------------------------------------");
             System.out.println("Fillojne Rezervimet!");
             Gilani.filloRezervimet();
-            Gilani.h.faturo();
+
+            // System.out.println("Rezervimet mbyllen, fillon faturimi...");
+            // Gilani.h.faturo();
             
         } catch (IOException e) {
             System.out.println(e.getMessage());

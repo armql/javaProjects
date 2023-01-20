@@ -2,3 +2,6 @@ Klienti;Dion;M;21
 Klienti;Trim;M;26
 Klienti;Blerim;M;30
 Klienti;Lavdim;M;31
+Klienti;Atdhe;M;31
+Klienti;Florent;M;22
+Klienti;Rion;M;22
