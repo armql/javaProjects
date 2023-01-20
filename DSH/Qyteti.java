@@ -38,6 +38,7 @@ public class Qyteti {
 
                     Thread.sleep(rd.nextInt(1250) + 250);
                     System.out.println(klienti + "\nRezervoi hapsiren " + hapsirat + " \n");
+                    h.faturo();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -56,7 +57,7 @@ public class Qyteti {
         while ((line = br.readLine()) != null) {
             String[] pjeset = line.split(";");
 
-            if(pjeset.length >= 5) {
+            if(pjeset.length == 5) {
                 String tipi = pjeset[0];
                 int nr = Integer.parseInt(pjeset[1]);
                 String pershkrimi = pjeset[2];
@@ -123,7 +124,7 @@ public class Qyteti {
         while ((line = brk.readLine()) != null) {
             String[] pjeset = line.split(";");
 
-            if (pjeset.length >= 3) {
+            if (pjeset.length == 3) {
 
                 String tipi = pjeset[0];
                 String emri = pjeset[1];
@@ -177,10 +178,10 @@ public class Qyteti {
             Restoranti rs3 = new Restoranti(4, "Taliko's Night Club", 20, 4000);
 
             // Testing if it works without klientet.txt
-            Klienti k11 = new Klienti("Third", 'M', 24);
-            Klienti k12 = new Klienti("Six", 'M', 32);
-            Klienti k13 = new Klienti("Five", 'F', 26);
-            Klienti k14 = new Klienti("Ten", 'M', 39);
+            Klienti k1 = new Klienti("Third", 'M', 24);
+            Klienti k2 = new Klienti("Six", 'M', 32);
+            Klienti k3 = new Klienti("Five", 'F', 26);
+            Klienti k4 = new Klienti("Ten", 'M', 39);
             
             Gilani.h.shtoHapesiren(d1);
             Gilani.h.shtoHapesiren(d2);
@@ -200,10 +201,11 @@ public class Qyteti {
             Gilani.h.shtoHapesiren(rs2);
             Gilani.h.shtoHapesiren(rs3);
 
-            Gilani.shtoKlientin(k11);
-            Gilani.shtoKlientin(k12);
-            Gilani.shtoKlientin(k13);
-            Gilani.shtoKlientin(k14);
+
+            Gilani.shtoKlientin(k1);
+            Gilani.shtoKlientin(k2);
+            Gilani.shtoKlientin(k3);
+            Gilani.shtoKlientin(k4);
             
             System.out.println("--------------------lexohenHapsirat--------------------");
             Gilani.lexoHapsirat();
@@ -212,12 +214,9 @@ public class Qyteti {
             Gilani.lexoKlientet();
 
             System.out.println("-------------------------------------------------------------------------------------------------");
-            System.out.println("Fillojne Rezervimet!");
+            System.out.println("Fillojne Rezervimet!\n");
             Gilani.filloRezervimet();
 
-            // System.out.println("Rezervimet mbyllen, fillon faturimi...");
-            // Gilani.h.faturo();
-            
         } catch (IOException e) {
             System.out.println(e.getMessage());
         } catch (RezervimiException e) {

@@ -36,7 +36,7 @@ public class Klienti {
     }
     
     
-    public boolean merreRradhen(Hoteli h) throws RezervimiException{
+    public boolean merreRradhen(Hoteli h) {
         h.radha.lock();
         try{
             ArrayList<Hapesira> temp = h.klienti.get(h);
@@ -50,7 +50,7 @@ public class Klienti {
         }
     }
     
-    public void rezervo(Hoteli h) throws RezervimiException{
+    public void rezervo(Hoteli h) {
         h.radha.lock();
         try{
             if (merreRradhen(h) == true) {

@@ -1,5 +1,9 @@
 package DSH;
 
 public interface Monitorohet {
-    public String getMonitorimi();
+
+    // Supozojme se hapesirat monitorohen prej kamerav
+    public default String getMonitorimi() {
+        return "Kamera";
+    }
 }

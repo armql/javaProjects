@@ -1,4 +1,8 @@
 DhomaStandarde;309;Talitos Standard Room;30.99;true
-DhomaVIP;810;Talitos VIP Room;149.99;false
+DhomaStandarde;308;Talitos Standard Room;30.99;true
+DhomaStandarde;307;Talitos Standard Room;30.99;true
+DhomaVIP;810;Talitos VIP Room;150;false
 Restorant;107;Talitos Bar;219.95;600
+Restorant;107;Lobby Bar;100;600
 SallaPerKonferenca;107;Meetings Room;89.95;25
+SallaPerKonferenca;107;Radiant;89.95;25
