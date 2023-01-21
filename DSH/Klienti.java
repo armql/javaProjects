@@ -57,7 +57,6 @@ public class Klienti {
                 hapesiratERezervuara.addAll(h.lista);
             }else {
                 System.out.println( h.radha + " . " + emri + " nuk e morri rradhen ne hotelin " + h );
-                return;
             }
         }
         finally{

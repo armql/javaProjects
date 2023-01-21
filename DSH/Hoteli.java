@@ -75,21 +75,20 @@ public class Hoteli {
         radha.lock();
         try{
 
-            // inicializohet arraylist hapesira
+            // inicializohet arraylist hapesira temp
             ArrayList<Hapesira> temp;
+            // thirret klienti nese ka si key* nga hashtable(k, h)
             if(klienti.containsKey(k)) {
+                
                 temp = klienti.get(k);
                 if(temp.contains(h)){
                     throw new RezervimiException("Hapesira ekziston");
                 }
-                temp.add(h);
-                klienti.put(k, temp);
-            }else {
+            }
+                // nese hapesira nuk eshte rezervuar ende rezervo hapesiren specifike me klientin specifik 
                 temp = klienti.get(k);
                 temp.add(h);
                 klienti.put(k, temp);
-            }
-
         }
         finally{
             radha.unlock();
@@ -99,6 +98,8 @@ public class Hoteli {
     public void faturo() throws RezervimiException,IOException {
         try {
             for(Klienti k : klienti.keySet()){
+                double total = 0;
+                String line = "------------------------------------------------------------------------\n";
 
                 ArrayList<Hapesira> hapsirat = klienti.get(k);
 
@@ -106,17 +107,16 @@ public class Hoteli {
                 FileWriter fw = new FileWriter(filePath);
 
                 fw.write("Klienti: " + k.getEmri() + " " + k.getGjinia() + " " + k.getMosha() + " vjec.\n");
-                fw.write("------------------------------------------------------------------------\n");
+                fw.write(line);
                 fw.write("Numri i hapesirave te rezervuara " + hapsirat.size() + "\n");
-                fw.write("------------------------------------------------------------------------\n");
-                double total = 0;
+                fw.write(line);
             
                 for(Hapesira h : hapsirat) {
                     fw.write(h.toString() + "\n");
-                    total = total + h.getCmimi();
+                    total += h.getCmimi();
                 }
 
-                fw.write("------------------------------------------------------------------------\n");
+                fw.write(line);
                 fw.write("Totali: " + total + "EUR\n");
                 fw.close();
             }

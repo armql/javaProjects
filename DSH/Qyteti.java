@@ -57,7 +57,7 @@ public class Qyteti {
         while ((line = br.readLine()) != null) {
             String[] pjeset = line.split(";");
 
-            if(pjeset.length == 5) {
+            if(pjeset.length >= 5) {
                 String tipi = pjeset[0];
                 int nr = Integer.parseInt(pjeset[1]);
                 String pershkrimi = pjeset[2];
@@ -124,7 +124,7 @@ public class Qyteti {
         while ((line = brk.readLine()) != null) {
             String[] pjeset = line.split(";");
 
-            if (pjeset.length == 3) {
+            if (pjeset.length >= 3) {
 
                 String tipi = pjeset[0];
                 String emri = pjeset[1];
@@ -206,7 +206,7 @@ public class Qyteti {
             Gilani.shtoKlientin(k2);
             Gilani.shtoKlientin(k3);
             Gilani.shtoKlientin(k4);
-            
+
             System.out.println("--------------------lexohenHapsirat--------------------");
             Gilani.lexoHapsirat();
             System.out.println("");
