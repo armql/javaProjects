@@ -1,7 +1,8 @@
 Klienti: Lavdim M 31 vjec.
 ------------------------------------------------------------------------
-Numri i hapesirave te rezervuara 1
+Numri i hapesirave te rezervuara 2
 ------------------------------------------------------------------------
-Dhoma Standarde 24 - Beige Room no.4 : 39.9 ka TV.
+SallaPerKonferenca 107 - Meetings Room : 89.95 me Kapacitet 25
+SallaPerKonferenca 107 - Meetings Room : 89.95 me Kapacitet 25
 ------------------------------------------------------------------------
-Totali: 39.9EUR
+Totali: 179.9EUR

@@ -1,7 +1,8 @@
 Klienti: Florent M 22 vjec.
 ------------------------------------------------------------------------
-Numri i hapesirave te rezervuara 1
+Numri i hapesirave te rezervuara 2
 ------------------------------------------------------------------------
-Dhoma VIP 14 - Talikos Croc's Finest RIO : 120.5 ka Gjakuzi.
+Dhoma Standarde 25 - Rouge Room no.5 : 39.9 ka TV.
+Dhoma Standarde 25 - Rouge Room no.5 : 39.9 ka TV.
 ------------------------------------------------------------------------
-Totali: 120.5EUR
+Totali: 79.8EUR
