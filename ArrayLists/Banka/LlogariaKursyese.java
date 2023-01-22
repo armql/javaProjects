@@ -3,7 +3,7 @@ package ArrayLists.Banka;
 public class LlogariaKursyese extends LlogariaBankare implements Transferohet {
     private double interesi = 0.03;
 
-    public LlogariaKursyese(int nrLlogarise, double bilanci, String klienti, double interesi) throws LlogariaException {
+    public LlogariaKursyese(long nrLlogarise, double bilanci, String klienti, double interesi) throws LlogariaException {
         super(nrLlogarise, bilanci, klienti);
         this.interesi = interesi;
     }

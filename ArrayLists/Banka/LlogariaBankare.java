@@ -1,13 +1,12 @@
 package ArrayLists.Banka;
 
 public abstract class LlogariaBankare {
-    private int nrLlogarise; // readonly ; 16 digits
+    private long nrLlogarise; // readonly ; 16 digits
     private double bilanci;
     private String klienti;
 
-    public LlogariaBankare (int nrLlogarise, double bilanci, String klienti) throws LlogariaException {
-        String digit = String.valueOf(nrLlogarise);
-        if(digit.length() == 16) {
+    public LlogariaBankare (long nrLlogarise, double bilanci, String klienti) throws LlogariaException {
+        if(nrLlogarise <= 9999999999999999) {
             throw new LlogariaException("Numri i Llogaris duhet te jete 16 shifra!");
         }
         this.nrLlogarise=nrLlogarise;
@@ -33,7 +32,7 @@ public abstract class LlogariaBankare {
         System.out.println("Shuma e terhjekur eshte" + terhjek);
     }
 
-    public int getNrLlogarise() {
+    public long getNrLlogarise() {
         return nrLlogarise;
     }
 

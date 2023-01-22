@@ -3,7 +3,7 @@ package ArrayLists.Banka;
 public class LlogariaRrjedhese extends LlogariaBankare implements Transferohet{
     private double mbiterheqja;
 
-    public LlogariaRrjedhese(int nrLlogarise, double bilanci, String klienti, double mbiterheqja)
+    public LlogariaRrjedhese(long nrLlogarise, double bilanci, String klienti, double mbiterheqja)
             throws LlogariaException {
         super(nrLlogarise, bilanci, klienti);
         if (mbiterheqja < 0) {
