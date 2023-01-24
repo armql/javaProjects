@@ -40,7 +40,7 @@ public class Klienti {
         h.radha.lock();
         try{
             ArrayList<Hapesira> temp = h.klienti.get(h);
-            if (temp.isEmpty() == false) {
+            if (temp.isEmpty()) {
                 return true;
             }
             return false;
@@ -50,11 +50,15 @@ public class Klienti {
         }
     }
     
-    public void rezervo(Hoteli h) {
+    public void rezervo(Hoteli h) throws RezervimiException{
         h.radha.lock();
         try{
-            if (merreRradhen(h) == true) {
-                hapesiratERezervuara.addAll(h.lista);
+            if (merreRradhen(h)) {
+                // this = KLIENTI | inicializo nje hapesire te rezervuar e cila e rezervon ate hapesire per klientin
+                Hapesira hapesiraRezervuar = h.rezervoHapsiren(this);
+                // e shton ne listen e hapesiratERezervuara duke e fshire nga hapesirat e lira
+                hapesiratERezervuara.add(hapesiraRezervuar);
+                System.out.println(emri + " rezervoi me sukses hapesiren " + hapesiraRezervuar + " ne hotelin " +  h.getEmriHotelit());
             }else {
                 System.out.println( h.radha + " . " + emri + " nuk e morri rradhen ne hotelin " + h );
             }

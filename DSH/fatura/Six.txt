@@ -1,8 +1,7 @@
 Klienti: Six M 32 vjec.
 ------------------------------------------------------------------------
-Numri i hapesirave te rezervuara 2
+Numri i hapesirave te rezervuara 1
 ------------------------------------------------------------------------
-Dhoma VIP 11 - Talikos Croc's Finest ISTANBUL : 120.5 ka Gjakuzi.
-Dhoma Standarde 309 - Talitos Standard Room : 30.99 ka TV.
+Dhoma VIP 14 - Talikos Croc's Finest RIO : 120.5 ka Gjakuzi.
 ------------------------------------------------------------------------
-Totali: 151.49EUR
+Totali: 120.5EUR

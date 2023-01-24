@@ -207,6 +207,12 @@ public class Qyteti {
             Gilani.shtoKlientin(k3);
             Gilani.shtoKlientin(k4);
 
+            //Klienti Third;M;24 merr radhen dhe rezervon i pari;
+            if (k1.merreRradhen(Gilani.h)) {
+                k1.rezervo(Gilani.h);
+            }
+            
+
             System.out.println("--------------------lexohenHapsirat--------------------");
             Gilani.lexoHapsirat();
             System.out.println("");

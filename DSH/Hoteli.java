@@ -1,6 +1,5 @@
 package DSH;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
@@ -22,6 +21,9 @@ public class Hoteli {
         lista = new Vector<Hapesira>();
     }
 
+    public String getEmriHotelit() {
+        return emriHotelit;
+    }
     public void shtoHapesiren(Hapesira h) throws RezervimiException {
         if (h == null) {
             throw new RezervimiException("Hapesira nuk eshte inicializuar");

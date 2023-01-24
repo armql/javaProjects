@@ -1,9 +1,8 @@
 Klienti: Trim M 26 vjec.
 ------------------------------------------------------------------------
-Numri i hapesirave te rezervuara 3
+Numri i hapesirave te rezervuara 2
 ------------------------------------------------------------------------
-Dhoma VIP 12 - Talikos Croc's Finest LASVEGAS : 120.5 ka Gjakuzi.
-Restoranti 2 - Taliko's Bar : 15.0 me Kapacitet 120
-Restoranti 107 - Lobby Bar : 100.0 me Kapacitet 600
+Dhoma Standarde 21 - Beige Room no.2 : 39.9 ka TV.
+SallaPerKonferenca 107 - Radiant : 89.95 me Kapacitet 25
 ------------------------------------------------------------------------
-Totali: 235.5EUR
+Totali: 129.85EUR

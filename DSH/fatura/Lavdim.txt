@@ -2,6 +2,6 @@ Klienti: Lavdim M 31 vjec.
 ------------------------------------------------------------------------
 Numri i hapesirave te rezervuara 1
 ------------------------------------------------------------------------
-Dhoma Standarde 21 - Beige Room no.2 : 39.9 ka TV.
+SallaPerKonferenca 5 - Taliko's Exotic Conference Room : 90.0 me Kapacitet 40
 ------------------------------------------------------------------------
-Totali: 39.9EUR
+Totali: 90.0EUR
