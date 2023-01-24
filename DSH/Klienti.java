@@ -37,20 +37,14 @@ public class Klienti {
     
     
     public boolean merreRradhen(Hoteli h) {
-        h.radha.lock();
-        try{
-            ArrayList<Hapesira> temp = h.klienti.get(h);
-            if (temp.isEmpty()) {
+            if (!h.radha.isLocked()) {
                 return true;
             }
             return false;
-        }
-        finally{
-        h.radha.unlock();
-        }
     }
     
     public void rezervo(Hoteli h) throws RezervimiException{
+        // Hotel key*
         h.radha.lock();
         try{
             if (merreRradhen(h)) {

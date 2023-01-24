@@ -1,9 +1,8 @@
 Klienti: Five F 26 vjec.
 ------------------------------------------------------------------------
-Numri i hapesirave te rezervuara 3
+Numri i hapesirave te rezervuara 2
 ------------------------------------------------------------------------
-Dhoma VIP 11 - Talikos Croc's Finest ISTANBUL : 120.5 ka Gjakuzi.
-Restoranti 4 - Taliko's Night Club : 20.0 me Kapacitet 4000
-Restoranti 107 - Talitos Bar : 219.95 me Kapacitet 600
+Dhoma VIP 12 - Talikos Croc's Finest LASVEGAS : 120.5 ka Gjakuzi.
+Restoranti 2 - Taliko's Bar : 15.0 me Kapacitet 120
 ------------------------------------------------------------------------
-Totali: 360.45EUR
+Totali: 135.5EUR

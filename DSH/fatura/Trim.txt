@@ -1,8 +1,9 @@
 Klienti: Trim M 26 vjec.
 ------------------------------------------------------------------------
-Numri i hapesirave te rezervuara 2
+Numri i hapesirave te rezervuara 3
 ------------------------------------------------------------------------
-Dhoma Standarde 21 - Beige Room no.2 : 39.9 ka TV.
-SallaPerKonferenca 107 - Radiant : 89.95 me Kapacitet 25
+Dhoma Standarde 23 - Blue Room no.3 : 39.9 ka TV.
+Restoranti 4 - Taliko's Night Club : 20.0 me Kapacitet 4000
+Restoranti 107 - Talitos Bar : 219.95 me Kapacitet 600
 ------------------------------------------------------------------------
-Totali: 129.85EUR
+Totali: 279.84999999999997EUR

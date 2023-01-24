@@ -4,15 +4,16 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.Random;
 
 public class Qyteti {
-    Hoteli h;
-    ArrayList<Klienti> klientet = new ArrayList<Klienti>();
+    private Hoteli h;
+    private ArrayList<Klienti> klientet;
 
-
-    public Qyteti() throws RezervimiException,IOException{
-        h = new Hoteli("Latilo");
+    public Qyteti(Hoteli h) {
+        this.h = h;
+        klientet = new ArrayList<Klienti>();
     }
 
     class Rezervimi extends Thread{
@@ -151,10 +152,9 @@ public class Qyteti {
     }
 
     public static void main(String[] args) {
-        Qyteti Gilani = null;
+        Hoteli h = new Hoteli("Taliko");
+        Qyteti Gilani = new Qyteti(h);
         try {
-            Gilani = new Qyteti();
-
             //testing without hapsirat.txt
             DhomaStandarde d1 = new DhomaStandarde(20, "Beige Room no.1", 39.90, true);
             DhomaStandarde d2 = new DhomaStandarde(21, "Beige Room no.2", 39.90, true);
@@ -183,35 +183,29 @@ public class Qyteti {
             Klienti k3 = new Klienti("Five", 'F', 26);
             Klienti k4 = new Klienti("Ten", 'M', 39);
             
-            Gilani.h.shtoHapesiren(d1);
-            Gilani.h.shtoHapesiren(d2);
-            Gilani.h.shtoHapesiren(d3);
-            Gilani.h.shtoHapesiren(d4);
-            Gilani.h.shtoHapesiren(d5);
+            h.shtoHapesiren(d1);
+            h.shtoHapesiren(d2);
+            h.shtoHapesiren(d3);
+            h.shtoHapesiren(d4);
+            h.shtoHapesiren(d5);
 
-            Gilani.h.shtoHapesiren(dv1);
-            Gilani.h.shtoHapesiren(dv2);
-            Gilani.h.shtoHapesiren(dv3);
-            Gilani.h.shtoHapesiren(dv4);
+            h.shtoHapesiren(dv1);
+            h.shtoHapesiren(dv2);
+            h.shtoHapesiren(dv3);
+            h.shtoHapesiren(dv4);
 
-            Gilani.h.shtoHapesiren(s1);
-            Gilani.h.shtoHapesiren(s2);
+            h.shtoHapesiren(s1);
+            h.shtoHapesiren(s2);
 
-            Gilani.h.shtoHapesiren(rs1);
-            Gilani.h.shtoHapesiren(rs2);
-            Gilani.h.shtoHapesiren(rs3);
+            h.shtoHapesiren(rs1);
+            h.shtoHapesiren(rs2);
+            h.shtoHapesiren(rs3);
 
 
             Gilani.shtoKlientin(k1);
             Gilani.shtoKlientin(k2);
             Gilani.shtoKlientin(k3);
             Gilani.shtoKlientin(k4);
-
-            //Klienti Third;M;24 merr radhen dhe rezervon i pari;
-            if (k1.merreRradhen(Gilani.h)) {
-                k1.rezervo(Gilani.h);
-            }
-            
 
             System.out.println("--------------------lexohenHapsirat--------------------");
             Gilani.lexoHapsirat();
@@ -223,10 +217,10 @@ public class Qyteti {
             System.out.println("Fillojne Rezervimet!\n");
             Gilani.filloRezervimet();
 
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        } catch (RezervimiException e) {
-            System.out.println(e.getMessage());
+        }catch (IOException e ) {
+            e.printStackTrace();
+        }catch (RezervimiException e ) {
+            e.printStackTrace();
         }
     }
 }

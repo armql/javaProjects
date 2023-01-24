@@ -1,7 +1,8 @@
 Klienti: Lavdim M 31 vjec.
 ------------------------------------------------------------------------
-Numri i hapesirave te rezervuara 1
+Numri i hapesirave te rezervuara 2
 ------------------------------------------------------------------------
-SallaPerKonferenca 5 - Taliko's Exotic Conference Room : 90.0 me Kapacitet 40
+Dhoma VIP 13 - Talikos Croc's Finest TOKYO : 120.5 ka Gjakuzi.
+Dhoma VIP 810 - Talitos VIP Room : 150.0 nuk ka Gjakuzi.
 ------------------------------------------------------------------------
-Totali: 90.0EUR
+Totali: 270.5EUR

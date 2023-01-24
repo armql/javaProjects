@@ -2,7 +2,7 @@ Klienti: Third M 24 vjec.
 ------------------------------------------------------------------------
 Numri i hapesirave te rezervuara 2
 ------------------------------------------------------------------------
-Dhoma Standarde 24 - Beige Room no.4 : 39.9 ka TV.
-Restoranti 3 - Taliko's Restaurant : 20.0 me Kapacitet 4000
+SallaPerKonferenca 6 - Taliko's Elegant Conference Room : 80.0 me Kapacitet 60
+Dhoma Standarde 307 - Talitos Standard Room : 30.99 ka TV.
 ------------------------------------------------------------------------
-Totali: 59.9EUR
+Totali: 110.99EUR

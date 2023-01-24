@@ -2,7 +2,7 @@ Klienti: Rion M 22 vjec.
 ------------------------------------------------------------------------
 Numri i hapesirave te rezervuara 2
 ------------------------------------------------------------------------
-Dhoma Standarde 20 - Beige Room no.1 : 39.9 ka TV.
-Restoranti 107 - Lobby Bar : 100.0 me Kapacitet 600
+Dhoma Standarde 24 - Beige Room no.4 : 39.9 ka TV.
+Dhoma Standarde 308 - Talitos Standard Room : 30.99 ka TV.
 ------------------------------------------------------------------------
-Totali: 139.9EUR
+Totali: 70.89EUR
