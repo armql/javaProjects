@@ -7,15 +7,15 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Todd {
-    
     private Robot robot;
     private List<Integer> events;
+    private boolean isReplaying;
 
     public Todd() throws AWTException {
         robot = new Robot();
         events = new ArrayList<>();
+        isReplaying = false;
     }
 
     public void startRecording() {
@@ -23,7 +23,6 @@ public class Todd {
     }
 
     public void stopRecording() {
-        replay();
     }
 
     public void pressKey(int keyCode) {
@@ -53,30 +52,35 @@ public class Todd {
     }
 
     public void replay() {
-        for (int i = 0; i < events.size(); i++) {
-            int event = events.get(i);
-            if (event > 0) {
-                if (event < 0x0100) {
-                    robot.keyPress(event);
-                } else if (event < 0x0101) {
-                    robot.mouseMove(event, events.get(++i));
+        isReplaying = true;
+        while (isReplaying) {
+            for (int i = 0; i < events.size(); i++) {
+                int event = events.get(i);
+                if (event > 0) {
+                    if (event < 0x0100) {
+                        robot.keyPress(event);
+                    } else if (event < 0x0101) {
+                        robot.mouseMove(event, events.get(++i));
+                    } else {
+                        robot.mousePress(event);
+                    }
                 } else {
-                    robot.mousePress(event);
-                }
-            } else {
-                if (event > -0x0100) {
-                    robot.keyRelease(-event);
-                } else if (event > -0x0101) {
-                    // no action needed for mouse move
-                } else {
-                    robot.mouseRelease(-event);
+                    if (event > -0x0100) {
+                        robot.keyRelease(-event);
+                    } else if (event > -0x0101) {
+                        // no action needed for mouse move
+                    } else {
+                        robot.mouseRelease(-event);
+                    }
                 }
             }
-            robot.delay(50);
         }
     }
-    
-
-}
 
 
+    public void stopReplaying(){
+        isReplaying = false;
+    }
+    public boolean isReplaying(){
+        return isReplaying;
+    }
