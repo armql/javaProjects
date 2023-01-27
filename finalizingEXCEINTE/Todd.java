@@ -6,55 +6,33 @@ import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
-
 public class Todd {
     private Robot robot;
     private List<Integer> events;
-    private boolean isReplaying;
+    private boolean recording;
+    private boolean replaying;
 
     public Todd() throws AWTException {
         robot = new Robot();
         events = new ArrayList<>();
-        isReplaying = false;
+        recording = false;
+        replaying = false;
     }
 
-    public void startRecording() {
-        events.clear();
+    public void toggleRecording() {
+        if (!recording) {
+            recording = true;
+            events.clear();
+        } else {
+            recording = false;
+        }
     }
 
-    public void stopRecording() {
-    }
-
-    public void pressKey(int keyCode) {
-        robot.keyPress(keyCode);
-        events.add(keyCode);
-    }
-
-    public void releaseKey(int keyCode) {
-        robot.keyRelease(keyCode);
-        events.add(-keyCode);
-    }
-
-    public void moveMouse(int x, int y) {
-        robot.mouseMove(x, y);
-        events.add(x);
-        events.add(y);
-    }
-
-    public void clickMouse(int buttons) {
-        robot.mousePress(buttons);
-        events.add(buttons);
-    }
-
-    public void releaseMouse(int buttons) {
-        robot.mouseRelease(buttons);
-        events.add(-buttons);
-    }
-
-    public void replay() {
-        isReplaying = true;
-        while (isReplaying) {
-            for (int i = 0; i < events.size(); i++) {
+    public void toggleReplaying() {
+        if (!replaying) {
+            replaying = true;
+            int i = 0;
+            while (i < events.size() && replaying) {
                 int event = events.get(i);
                 if (event > 0) {
                     if (event < 0x0100) {
@@ -73,14 +51,47 @@ public class Todd {
                         robot.mouseRelease(-event);
                     }
                 }
+                i++;
             }
+            replaying = false;
+        } else {
+            replaying = false;
         }
     }
 
+    public void pressKey(int keyCode) {
+        if (recording) {
+            events.add(keyCode);
+        }
+        robot.keyPress(keyCode);
+    }
 
-    public void stopReplaying(){
-        isReplaying = false;
+    public void releaseKey(int keyCode) {
+        if (recording) {
+            events.add(-keyCode);
+        }
+        robot.keyRelease(keyCode);
     }
-    public boolean isReplaying(){
-        return isReplaying;
+
+    public void moveMouse(int x, int y) {
+        if (recording) {
+            events.add(x);
+            events.add(y);
+        }
+        robot.mouseMove(x, y);
     }
+
+    public void clickMouse(int buttons) {
+        if (recording) {
+            events.add(buttons);
+        }
+        robot.mousePress(buttons);
+    }
+
+    public void releaseMouse(int buttons) {
+        if (recording) {
+            events.add(-buttons);
+        }
+        robot.mouseRelease(buttons);
+    }
+}
