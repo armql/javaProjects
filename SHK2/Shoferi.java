@@ -16,6 +16,11 @@ public class Shoferi extends Punetori {
     }
 
     @Override
+    public boolean angazhimiFullTime() {
+        return false;
+    }
+
+    @Override
     public String toString() {
         return super.toString() + " dhe regjioni:" + regjioni;
     }
