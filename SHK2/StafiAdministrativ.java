@@ -14,6 +14,11 @@ public abstract class StafiAdministrativ extends Punetori {
     public String getDepartamenti() {
         return departamenti;
     }
-    
-    
+
+    public void setDepartamenti(String departamenti) throws PunetoriException {
+        if (departamenti == null || departamenti.trim().isEmpty()) {
+            throw new PunetoriException("Departamenti nuk eshte inicializuar ose eshte i zbrazet.");
+        }
+        this.departamenti=departamenti;
+    }
 }
