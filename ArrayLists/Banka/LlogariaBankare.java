@@ -6,7 +6,7 @@ public abstract class LlogariaBankare {
     private String klienti;
 
     public LlogariaBankare (long nrLlogarise, double bilanci, String klienti) throws LlogariaException {
-        if(nrLlogarise <= 9999999999999999) {
+        if(nrLlogarise <= 99) {
             throw new LlogariaException("Numri i Llogaris duhet te jete 16 shifra!");
         }
         this.nrLlogarise=nrLlogarise;

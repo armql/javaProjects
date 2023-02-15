@@ -44,6 +44,7 @@ public class Ndermarrja {
         int countSh = 0;
         int countK = 0;
         int countM = 0;
+        int countD = 0;
 
 
         for (int i = 0; i < index; i++) {
@@ -55,6 +56,10 @@ public class Ndermarrja {
             }
             if (punetoret[i] instanceof Menaxheri) {
                 countM++;
+            }
+            }
+            if (punetoret[i] instanceof Drejtori) {
+                countD++;
             }
 
             if(countSh != 0 && countK !=0 && countM != 0 && countD != 0){
@@ -74,6 +79,33 @@ public class Ndermarrja {
 
 
     public static void main(String[] args) {
-        
+        try {
+            
+            Ndermarrja n = new Ndermarrja("BLERIMI", 10);
+
+            Drejtori d = new Drejtori("Trim", 31, "COMPUTER SCIENCE", "DR.SC.HONOR KAUZA");
+            Shoferi sh1 = new Shoferi("Valdrin", 21, "Komoran");
+            Shoferi sh2 = new Shoferi("Raqip", 48, "Vushtrre");
+
+            Menaxheri m1 = new Menaxheri("Redi", 21, "1CA");
+            Menaxheri m2 = new Menaxheri("Atdhe", 21, "1CA");
+
+            Koordinatori k1 = new Koordinatori("Leo", 23, 2);
+            Koordinatori k2 = new Koordinatori("Rea", 24, 4);
+
+            n.shtoPunetor(d);
+            n.shtoPunetor(sh1);
+            n.shtoPunetor(sh2);
+            n.shtoPunetor(m1);
+            n.shtoPunetor(m2);
+            n.shtoPunetor(k1);
+            n.shtoPunetor(k2);
+
+            n.getKualifikimet();
+            n.kaTeGjithaLlojet();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 }

@@ -1,7 +1,7 @@
 package SHK2;
 
 public class Shoferi extends Punetori {
-    private String regjioni = "null";
+    private String regjioni;
 
     public Shoferi(String emri, int mosha, String regjioni) throws PunetoriException {
         super(emri,mosha);
