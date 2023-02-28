@@ -1,4 +1,4 @@
-package ArrayLists.Biblioteka;
+package SHK2.Biblioteka;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -10,32 +10,30 @@ import java.util.Iterator;
 public class Biblioteka {
     private String emri;
     private ArrayList<Libri> lista;
-    private String fileIn;
-    private String fileOut;
-    private FileReader fr;
-    private BufferedReader br;
-    private FileWriter fw;
 
-    public Biblioteka(String emri,String fileIn,String fileOut) throws LibriException,IOException{
-        if(emri == null || emri.trim().isEmpty()) {
-            throw new LibriException("Libri nuk eshte inicializuar ose eshte i zbrazet.");
-        }
+    String fileIn;
+    String fileOut;
+    FileReader fr;
+    BufferedReader br;
+    FileWriter fw;
+
+    public Biblioteka(String emri, String fileIn, String fileOut) throws IOException {
         this.emri=emri;
         this.fileIn=fileIn;
         this.fileOut=fileOut;
-        lista = new ArrayList<Libri>();
     
+        lista = new ArrayList<Libri>();
         fr = new FileReader(fileIn);
         br = new BufferedReader(fr);
         fw = new FileWriter(fileOut);
     }
 
-    public void shtoLibrin(Libri l) throws LibriException{
-        if(l == null) {
-            throw new LibriException("Libri nuk eshte inicializuar");
+    public void shtoLibri(Libri l) throws LibriException{
+        if (l == null) {
+            throw new LibriException("Libri nuk eshte inicializuar.");
         }
         if (lista.contains(l)) {
-            throw new LibriException("Libri ekziston ne list");
+            throw new LibriException("Libri gjindet tashme ne list");
         }
         lista.add(l);
     }
@@ -53,53 +51,57 @@ public class Biblioteka {
                 }
             }
         }
-
     }
 
-    public void lexoLibrat() throws LibriException, IOException{
+    public void lexoLibrat() throws LibriException, IOException {
         String line = "";
 
         while ((line = br.readLine()) != null) {
             String [] fjalet = line.split(";");
-            String type = fjalet[0]; // Libri Shkollor ose Enciklopedia
-            int isbn = Integer.parseInt(fjalet[1]);
+            String type = fjalet[0];
+            String isbn = fjalet[1];
             String titulli = fjalet[2];
             int vitiPublikimit = Integer.parseInt(fjalet[3]);
-            
-            if(type.equals("LibriShkollor")) {
+
+            if (type.equals("LibriShkollor")) {
                 String drejtimi = fjalet[4];
 
-                LibriShkollor ls = new LibriShkollor(isbn, titulli, vitiPublikimit, drejtimi);
-                shtoLibrin(ls);
+                LibriShkollor l = new LibriShkollor(isbn, titulli, vitiPublikimit, drejtimi);
+                shtoLibri(l);
             }else if (type.equals("Enciklopedia")) {
                 int nrAutoreve = Integer.parseInt(fjalet[4]);
 
                 Enciklopedia en = new Enciklopedia(isbn, titulli, vitiPublikimit, nrAutoreve);
-                shtoLibrin(en);
+                shtoLibri(en);
             }
-
         }
-
     }
 
-    public void shkruaj(String text) throws IOException {
-        fw.write(text);
+    public void shkruaj(String tekst) throws IOException {
+        fw.write(tekst);
         fw.flush();
     }
 
-    public void shkruajLibrat() throws IOException {
-        String all = "";
+    public void shkruajLibrat() throws LibriException,IOException {
+        String librat = "";
+
         Iterator<Libri> it = lista.iterator();
 
         while (it.hasNext()) {
             Libri l = it.next();
-            all += l.getIsbn() + ";" + l.getTitulli() + ";" + l.getVitiPublikimit() + "\n";
+            if (l instanceof LibriShkollor) {
+                LibriShkollor ls = (LibriShkollor)l;
+                librat += "Libri Shkollor;" +  ls.getIsbn() + ";" + ls.getTitulli() + ";" + ls.getVitiPublikimit() + ";" + ls.getDrejtimi() + "\n";
+            }
+            if (l instanceof Enciklopedia) {
+                Enciklopedia en = (Enciklopedia)l;
+                librat += "Enciklopedia;" + en.getIsbn() + ";" + en.getTitulli() + ";" + en.getVitiPublikimit() + ";" + en.getNrAutoreve() + "\n";
+            }
         }
-
-        shkruaj(all);
+        shkruaj(librat);
     }
 
-    public void closeAll() throws IOException{
+    public void closeAll() throws IOException {
         try {
             if (fr != null) {
                 fr.close();
@@ -109,14 +111,24 @@ public class Biblioteka {
             }
             
         } catch (Exception e) {
-        System.out.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
 
     public static void main(String[] args) throws IOException{
         Biblioteka b = null;
         try {
-            b = new Biblioteka("UBT Library", "C:\\Users\\Halit\\OneDrive - ubt-uni.net\\javaProjects\\ArrayLists\\Biblioteka\\shk2.txt", "C:\\Users\\Halit\\OneDrive - ubt-uni.net\\javaProjects\\ArrayLists\\Biblioteka\\shk2.out");
+            b = new Biblioteka("-UBT Library-", "C:\\Users\\Halit\\OneDrive - ubt-uni.net\\javaProjects\\SHK2\\Biblioteka\\shk2.txt", "C:\\Users\\Halit\\OneDrive - ubt-uni.net\\javaProjects\\SHK2\\Biblioteka\\shk2.out");
+
+            LibriShkollor l1 = new LibriShkollor("2311", "Lagotas Blue Whale", 1993, "Anatomi");
+            LibriShkollor l2 = new LibriShkollor("1442", "Rhys Star Machine", 2014, "Science");
+            
+            Enciklopedia e1 = new Enciklopedia("55124A", "Lita", 2022, 1);
+            Enciklopedia e2 = new Enciklopedia("53424A", "Taliko", 2009, 4);
+            b.shtoLibri(l1);
+            b.shtoLibri(l2);
+            b.shtoLibri(e1);
+            b.shtoLibri(e2);
 
             System.out.println("Metoda lexoLibrat()");
             b.lexoLibrat();
@@ -126,9 +138,8 @@ public class Biblioteka {
             System.out.println("");
             System.out.println("Metoda shkruajLibrat()");
             b.shkruajLibrat();
-
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
         finally {
             if (b != null) {
