@@ -101,7 +101,7 @@ public class Biblioteka {
 
     public void closeAll() throws IOException{
         try {
-            if (fr != null) 
+            if (fr != null) {
                 fr.close();
             }
             if (br != null) {

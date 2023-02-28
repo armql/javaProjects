@@ -57,18 +57,16 @@ public class Ndermarrja {
             if (punetoret[i] instanceof Menaxheri) {
                 countM++;
             }
-            }
             if (punetoret[i] instanceof Drejtori) {
                 countD++;
             }
-
+        }
             if(countSh != 0 && countK !=0 && countM != 0 && countD != 0){
                 return true;
             }
             else{
                 return false;
             }
-        }
     }
 
     public void shfaq() {
@@ -87,8 +85,8 @@ public class Ndermarrja {
             Shoferi sh1 = new Shoferi("Valdrin", 21, "Komoran");
             Shoferi sh2 = new Shoferi("Raqip", 48, "Vushtrre");
 
-            Menaxheri m1 = new Menaxheri("Redi", 21, "1CA");
-            Menaxheri m2 = new Menaxheri("Atdhe", 21, "1CA");
+            Menaxheri m1 = new Menaxheri("Redi", 21, "1CA", "EKONOMIST");
+            Menaxheri m2 = new Menaxheri("Atdhe", 21, "1CA", "SHEF I VETEVETES");
 
             Koordinatori k1 = new Koordinatori("Leo", 23, 2);
             Koordinatori k2 = new Koordinatori("Rea", 24, 4);
@@ -101,8 +99,12 @@ public class Ndermarrja {
             n.shtoPunetor(k1);
             n.shtoPunetor(k2);
 
+            System.out.println("Kualifkimi");
             n.getKualifikimet();
-            n.kaTeGjithaLlojet();
+            System.out.println("Ndermarrja i ka te gjitha llojet e punetoreve: " + 
+            n.kaTeGjithaLlojet());
+            System.out.println("");
+            n.shfaq();
 
         } catch (Exception e) {
             System.out.println(e);

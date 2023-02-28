@@ -29,7 +29,7 @@ public class LineCounter {
             }
         }
 
-        FileWriter fw = new FileWriter("shk2.txt\\shk2.out");
+        FileWriter fw = new FileWriter("C:\\Users\\Halit\\OneDrive - ubt-uni.net\\javaProjects\\IOStreams\\LineCounter\\shk2.out");
         fw.write("Kemi " + nr_rreshtave + " rreshta, dhe " + count + " qe plotesojn kushtin.");
         return count;
     }
@@ -46,7 +46,7 @@ public class LineCounter {
     public static void main(String[] args) throws IOException{
         LineCounter l = null;
         try {
-            l = new LineCounter("shk2.txt");
+            l = new LineCounter("C:\\Users\\Halit\\OneDrive - ubt-uni.net\\javaProjects\\IOStreams\\LineCounter\\shk2.txt");
             l.countLines();
         } catch (IOException e) {
             System.out.println(e.getMessage());
