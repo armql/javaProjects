@@ -1,5 +1,8 @@
 package SHK2;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Menaxheri extends Punetori implements Individi{
     private String sektori;
     private String kualifikimi;

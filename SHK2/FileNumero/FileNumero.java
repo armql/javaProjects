@@ -33,6 +33,7 @@ public class FileNumero {
 
         FileWriter fw = new FileWriter("C:\\Users\\Halit\\OneDrive - ubt-uni.net\\javaProjects\\SHK2\\FileNumero\\fileName_out.txt");
         fw.write("Kemi " + nr_rreshtave + " rreshta, dhe " + count + " qe plotesojn kushtin.");
+        fw.flush();
         return count;
     }
 
