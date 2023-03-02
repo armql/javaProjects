@@ -1,5 +1,7 @@
 package SHK2;
 
+import java.io.IOException;
+
 public class Ndermarrja {
     private String emri;
     private Punetori [] punetoret;
@@ -110,4 +112,5 @@ public class Ndermarrja {
             System.out.println(e);
         }
     }
+
 }

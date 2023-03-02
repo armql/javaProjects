@@ -10,14 +10,19 @@ import java.util.Iterator;
 public class Banka {
     private String emri;
     public ArrayList<LlogariaBankare> llogarit;
-    String fileIn = "ArrayLists\\Banka\\Llogarit\\llogaria.in";
-    String fileOut = "ArrayLists\\Banka\\Llogarit\\banka.out";
+    String fileIn;
+    String fileOut;
 
-    public Banka(String emri,String fileIn, String fileOut) throws LlogariaException {
+    FileReader fr;
+    BufferedReader br;
+    public Banka(String emri,String fileIn, String fileOut) throws LlogariaException, IOException {
         this.emri=emri;
         this.fileIn=fileIn;
         this.fileOut=fileOut;
         llogarit = new ArrayList<LlogariaBankare>();
+
+        FileReader fr = new FileReader(fileIn);
+        BufferedReader br = new BufferedReader(fr);
     }
 
     public void shtoLlogarine(LlogariaBankare l) throws LlogariaException{
@@ -30,11 +35,8 @@ public class Banka {
         llogarit.add(l);
     }
 
-    public void lexoLlogarite() throws LlogariaException,IOException{
-
+    public void lexoLlogarite() throws LlogariaException,IOException {
         String line = "";
-        FileReader fr = new FileReader(fileIn);
-        BufferedReader br = new BufferedReader(fr);
 
         while ((line = br.readLine()) != null) {
             String[] pjeset = line.split(";");
@@ -49,14 +51,14 @@ public class Banka {
                     int mbiterheqja = Integer.parseInt(pjeset[4]);
 
                     LlogariaRrjedhese lr = new LlogariaRrjedhese(nrLlogari, bilanci, klienti, mbiterheqja);
-                    this.shtoLlogarine(lr);
+                    shtoLlogarine(lr);
                     System.out.println(lr);
                 }
                 if (tipi.equals("LlogariKursyese")) {
                     double interesi = Double.parseDouble(pjeset[4]);
 
                     LlogariaKursyese lk = new LlogariaKursyese(nrLlogari, bilanci, klienti, interesi);
-                    this.shtoLlogarine(lk);
+                    shtoLlogarine(lk);
                     System.out.println(lk);
                     }
             }
@@ -154,8 +156,15 @@ public class Banka {
         return lb;
     }
 
-    
-    public static void main(String[] args) {
+    public void closeAll() throws IOException {
+        if (fr != null) {
+            fr.close();
+        }
+        if(br != null) {
+            br.close();
+        }
+    }
+    public static void main(String[] args) throws IOException {
         Banka b = null;
         try {
             b = new Banka(
@@ -168,6 +177,11 @@ public class Banka {
             b.shkruajLlogarite();
         } catch (Exception e) {
             System.out.println(e);
+        }
+        finally {
+            if (b != null) {
+                b.closeAll();
+            }
         }
     }
 }
