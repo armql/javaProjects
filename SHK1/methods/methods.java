@@ -148,7 +148,7 @@ public class methods{
         return false;
     }
 
-    //metoda fshijPersoni() qe fshine me shum se nje person me parameter emri
+    //metoda fshijPersoni() qe fshine me shum se nje person me parameter emri metoda int / mundet edhe void pa int/COUNTER
     public int fshijEPersoni(String emri) {
         if (index == 0) {
             System.out.println("Nuk ka asnje person ne listen tuaj.");

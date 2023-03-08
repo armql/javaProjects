@@ -101,9 +101,13 @@ public class Personi {
          }else{
             System.out.println(" Nuk gjindet ne sistem!");
          }
-
+        
         return "Emri: " + emri + " Mbiemri: " + mbiemri + "\nMosha:" + mosha 
         + "\nGjinia:" + gj + "\n Bilanci i vlefshem:" + bilanci + "€";
+
+         OSE BOOLEAN gjinia ateher shkruhet ne return (gjinia? "true" : "false")
+         return "Emri: " + emri + " Mbiemri: " + mbiemri + "\nMosha:" + mosha 
+        + "\nGjinia:" + (gjinia? "Mashkull" : "Femer") + "\n Bilanci i vlefshem:" + bilanci + "€";
 
          */
     }
