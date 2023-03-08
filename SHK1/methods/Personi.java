@@ -105,7 +105,7 @@ public class Personi {
         return "Emri: " + emri + " Mbiemri: " + mbiemri + "\nMosha:" + mosha 
         + "\nGjinia:" + gj + "\n Bilanci i vlefshem:" + bilanci + "€";
 
-         OSE BOOLEAN gjinia ateher shkruhet ne return (gjinia? "true" : "false")
+         OSE BOOLEAN gjinia atehere shkruhet ne return keshtu (gjinia? "Mashkull[true]" : "Femer[false]")
          return "Emri: " + emri + " Mbiemri: " + mbiemri + "\nMosha:" + mosha 
         + "\nGjinia:" + (gjinia? "Mashkull" : "Femer") + "\n Bilanci i vlefshem:" + bilanci + "€";
 
